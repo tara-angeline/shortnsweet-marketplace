@@ -1,12 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Short N' Sweet | Dessertbox Dublin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h2>Hello world!</h2>
-<p>Hello Tara</p>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a th:href="@{/}">Short N' Sweet</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/shop}">Shop</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact us</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <a th:href="@{/cart}">🛒</a>
+            <a th:href="@{/account}">👤</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>First Ever Dessertbox in Dublin</h1>
+        <p>
+            Subheading that sets up context, shares more info about the website,
+            or generally gets people psyched to keep exploring.
+        </p>
+        <a th:href="@{/shop}" class="btn">Shop Now</a>
+    </div>
+
+    <div class="hero-image">
+        <!-- hero image -->
+    </div>
+</section>
+
+<section class="featured">
+    <h2>Dublin’s Most Loved</h2>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img th:src="@{/images/dark-chocolate.jpg}" alt="Dark Chocolate">
+            <h3>Dark Chocolate</h3>
+            <p>Body text for whatever you'd like to add more to the subheading.</p>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/lotus-biscoff.jpg}" alt="Lotus Biscoff">
+            <h3>Lotus Biscoff</h3>
+            <p>Body text for whatever you'd like to expand on the main point.</p>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/tiramisu.jpg}" alt="Tiramisu">
+            <h3>Tiramisu</h3>
+            <p>Body text for whatever you'd like to share more.</p>
+        </div>
+    </div>
+</section>
+
+<section class="asian-flavours">
+    <div class="text-content">
+        <h2>Southeast Asian Flavours!</h2>
+
+        <div class="flavour">
+            <h4>Klepon</h4>
+            <p>Body text for whatever you'd like to expand on the main point.</p>
+        </div>
+
+        <div class="flavour">
+            <h4>Mango Float</h4>
+            <p>
+                Body text for whatever you'd like to say.
+                Add main takeaway points, quotes, anecdotes.
+            </p>
+        </div>
+
+        <div class="flavour">
+            <h4>Ube</h4>
+            <p>
+                Body text for whatever you'd like to add more to the main point.
+                It provides details, explanations, and context.
+            </p>
+        </div>
+
+        <a th:href="@{/shop}" class="btn">Explore Now!</a>
+    </div>
+
+    <div class="image-content">
+        <img th:src="@{/images/asian-desserts.jpg}" alt="Southeast Asian Desserts">
+    </div>
+</section>
+
+<section class="info">
+    <h2>Learn more about us!</h2>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <img th:src="@{/images/our-story.jpg}" alt="Our story">
+            <h3>Our story</h3>
+            <p>Body text for whatever you'd like to add more to the subheading.</p>
+            <a th:href="@{/about}">Read more</a>
+        </div>
+
+        <div class="info-card">
+            <img th:src="@{/images/contact.jpg}" alt="Contact us">
+            <h3>Contact us</h3>
+            <p>Body text for whatever you'd like to expand on the main point.</p>
+            <a th:href="@{/contact}">Get in touch</a>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>Hear what they have to say!</h2>
+
+    <div class="testimonial-grid">
+        <div class="testimonial">
+            <p>“A terrific piece of praise”</p>
+            <span>Name</span>
+        </div>
+
+        <div class="testimonial">
+            <p>“A fantastic bit of feedback”</p>
+            <span>Name</span>
+        </div>
+
+        <div class="testimonial">
+            <p>“A genuinely glowing review”</p>
+            <span>Name</span>
+        </div>
+    </div>
+</section>
+
+<section class="location">
+    <h2>Find us!</h2>
+
+    <div class="location-grid">
+        <div class="map">
+            <!-- google maps embed -->
+        </div>
+
+        <div class="address">
+            <p><strong>123 Dawson Street, Dublin, Ireland</strong></p>
+            <p>D02TAAC</p>
+
+            <h4>Opening hours:</h4>
+            <ul>
+                <li>Monday – Friday: 09:00 AM – 15:00 PM</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Short N' Sweet - Tara Ava Angeline</h4>
+            <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+        </div>
+
+        <div>
+            <h4>Shop</h4>
+            <ul>
+                <li><a th:href="@{/shop}">All products</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>About</h4>
+            <ul>
+                <li><a th:href="@{/about}">Our story</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a th:href="@{/contact}">Get in touch</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
