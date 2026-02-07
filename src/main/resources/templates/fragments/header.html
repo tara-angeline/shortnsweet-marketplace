@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header">
+    <nav>
+        <div class="logo">
+            <a th:href="@{/}">Short N' Sweet</a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a th:href="@{/}"
+                   th:classappend="${activePage == 'home'} ? 'active'">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/shop}"
+                   th:classappend="${activePage == 'shop'} ? 'active'">
+                    Shop
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/about}"
+                   th:classappend="${activePage == 'about'} ? 'active'">
+                    About
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-icons">
+            <a th:href="@{/cart}">🛒</a>
+            <a th:href="@{/account}">👤</a>
+        </div>
+    </nav>
+</header>
+
+</body>
+</html>

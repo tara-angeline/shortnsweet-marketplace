@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <div>
+        <h4>Short N' Sweet - Tara Ava Angeline</h4>
+        <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+      </div>
+
+      <div class="socials">
+        <a href="#">FB</a>
+        <a href="#">IN</a>
+        <a href="#">YT</a>
+        <a href="#">IG</a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a th:href="@{/shop}">Page</a></li>
+        <li><a th:href="@{/shop}">Page</a></li>
+        <li><a th:href="@{/shop}">Page</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a th:href="@{/about}">Page</a></li>
+        <li><a th:href="@{/about}">Page</a></li>
+        <li><a th:href="@{/about}">Page</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact us</h4>
+      <ul>
+        <li><a th:href="@{/contact}">Page</a></li>
+        <li><a th:href="@{/contact}">Page</a></li>
+        <li><a th:href="@{/contact}">Page</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
