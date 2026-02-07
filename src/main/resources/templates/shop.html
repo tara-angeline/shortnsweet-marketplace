@@ -158,31 +158,48 @@
 
 <footer>
     <div class="footer-grid">
+
         <div>
-            <h4>Short N' Sweet - Tara Ava Angeline</h4>
-            <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+            <div>
+                <h4>Short N' Sweet - Tara Ava Angeline</h4>
+                <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+            </div>
+
+            <div class="socials">
+                <a href="#">FB</a>
+                <a href="#">IN</a>
+                <a href="#">YT</a>
+                <a href="#">IG</a>
+            </div>
         </div>
 
         <div>
             <h4>Shop</h4>
             <ul>
-                <li><a th:href="@{/shop}">All products</a></li>
+                <li><a th:href="@{/shop}">Page</a></li>
+                <li><a th:href="@{/shop}">Page</a></li>
+                <li><a th:href="@{/shop}">Page</a></li>
             </ul>
         </div>
 
         <div>
             <h4>About</h4>
             <ul>
-                <li><a th:href="@{/about}">Our story</a></li>
+                <li><a th:href="@{/about}">Page</a></li>
+                <li><a th:href="@{/about}">Page</a></li>
+                <li><a th:href="@{/about}">Page</a></li>
             </ul>
         </div>
 
         <div>
-            <h4>Contact</h4>
+            <h4>Contact us</h4>
             <ul>
-                <li><a th:href="@{/contact}">Get in touch</a></li>
+                <li><a th:href="@{/contact}">Page</a></li>
+                <li><a th:href="@{/contact}">Page</a></li>
+                <li><a th:href="@{/contact}">Page</a></li>
             </ul>
         </div>
+
     </div>
 </footer>
 
