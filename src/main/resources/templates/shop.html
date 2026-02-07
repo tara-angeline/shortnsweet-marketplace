@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Short N' Sweet | Dessertbox Dublin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a th:href="@{/}">Short N' Sweet</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/shop}">Shop</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact us</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <a th:href="@{/cart}">🛒</a>
+            <a th:href="@{/account}">👤</a>
+        </div>
+    </nav>
+</header>
+
+<section class="shop-hero">
+    <div class="hero-content">
+        <h1>Fancy a sweet treat?</h1>
+
+        <form th:action="@{/shop/search}" method="get" class="search-bar">
+            <input
+                    type="text"
+                    name="q"
+                    placeholder="We can fix that ;)"
+            >
+        </form>
+    </div>
+</section>
+
+<section class="shop-products">
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img th:src="@{/images/dark-chocolate.jpg}" alt="Dark Chocolate">
+            <h3>Dark Chocolate</h3>
+            <p>She's a classic! Chocolate cake with creamy dark chocolate ganache</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/black-forest.jpg}" alt="Black Forest">
+            <h3>Black Forest</h3>
+            <p>Chocolate cake with maraschino cherries and Chantilly cream</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/tiramisu.jpg}" alt="Tiramisu">
+            <h3>Tiramisu</h3>
+            <p>Coffee dipped-sponge cake layered with mascarpone cheese</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/matcha.jpg}" alt="Matcha Tiramisu">
+            <h3>Matcha Tiramisu</h3>
+            <p>Matcha sponge cake layered with matcha whipped cream</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/red-velvet.jpg}" alt="Red Velvet">
+            <h3>Red Velvet</h3>
+            <p>Red velvet sponge cake with cream cheese frosting</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/lotus.jpg}" alt="Lotus Biscoff">
+            <h3>Lotus Biscoff</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/klepon.jpg}" alt="Klepon">
+            <h3>Klepon</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/mango-float.jpg}" alt="Mango Float">
+            <h3>Mango Float</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/ube.jpg}" alt="Ube">
+            <h3>Ube</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <!-- More flavours -->
+        <div class="product-card">
+            <img th:src="@{/images/oolong.jpg}" alt="Oolong Tea">
+            <h3>Oolong Tea</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/nastar.jpg}" alt="Nastar">
+            <h3>Nastar</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/strawberry.jpg}" alt="Strawberry Shortcake">
+            <h3>Strawberry Shortcake</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/carrot.jpg}" alt="Carrot Cake">
+            <h3>Carrot Cake</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/nutella.jpg}" alt="Nutella">
+            <h3>Nutella</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+        <div class="product-card">
+            <img th:src="@{/images/oreo.jpg}" alt="Oreo">
+            <h3>Oreo</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <span class="price">$10.99</span>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Short N' Sweet - Tara Ava Angeline</h4>
+            <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+        </div>
+
+        <div>
+            <h4>Shop</h4>
+            <ul>
+                <li><a th:href="@{/shop}">All products</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>About</h4>
+            <ul>
+                <li><a th:href="@{/about}">Our story</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a th:href="@{/contact}">Get in touch</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
