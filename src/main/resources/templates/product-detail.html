@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Short N' Sweet | Dessertbox Dublin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- css -->
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <a th:href="@{/}">Short N' Sweet</a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a th:href="@{/}">Home</a></li>
+      <li><a th:href="@{/shop}">Shop</a></li>
+      <li><a th:href="@{/about}">About</a></li>
+      <li><a th:href="@{/contact}">Contact us</a></li>
+    </ul>
+
+    <div class="nav-icons">
+      <a th:href="@{/cart}">🛒</a>
+      <a th:href="@{/account}">👤</a>
+    </div>
+  </nav>
+</header>
+
+<section class="product-detail">
+
+  <div class="product-layout">
+
+    <div class="product-image">
+      <img
+              th:src="@{/images/dark-chocolate.jpg}"
+              th:alt="${product.name}"
+              alt="Product image"
+      >
+    </div>
+
+    <div class="product-info">
+      <h1 th:text="${product.name}">Dark Chocolate</h1>
+
+      <p class="subtitle" th:text="${product.subtitle}">
+        Subheading
+      </p>
+
+      <p class="price" th:text="'$' + ${product.price}">
+        $10.99
+      </p>
+
+      <p class="description" th:text="${product.description}">
+        Body text for describing what this product is and why this product
+        is simply a must-buy.
+      </p>
+
+      <form th:action="@{/cart/add}" method="post">
+        <input type="hidden" name="productId" th:value="${product.id}">
+        <button type="submit" class="btn-primary">
+          Add to cart
+        </button>
+      </form>
+
+      <p class="fine-print">
+        Text box for additional details or fine print
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="related-products">
+  <h2>Related products</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <a th:href="@{/product/1}">
+        <img th:src="@{/images/black-forest.jpg}" alt="Black Forest">
+        <h3>Black Forrest</h3>
+        <p>Description of first product</p>
+        <span class="price">$10.99</span>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a th:href="@{/product/2}">
+        <img th:src="@{/images/tiramisu.jpg}" alt="Tiramisu">
+        <h3>Tiramisu</h3>
+        <p>Description of first product</p>
+        <span class="price">$10.99</span>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a th:href="@{/product/3}">
+        <img th:src="@{/images/oreo.jpg}" alt="Oreo">
+        <h3>Oreo</h3>
+        <p>Description of first product</p>
+        <span class="price">$10.99</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+        <div>
+          <h4>Short N' Sweet - Tara Ava Angeline</h4>
+          <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
+        </div>
+
+      <div class="socials">
+        <a href="#">FB</a>
+        <a href="#">IN</a>
+        <a href="#">YT</a>
+        <a href="#">IG</a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a th:href="@{/shop}">Page</a></li>
+        <li><a th:href="@{/shop}">Page</a></li>
+        <li><a th:href="@{/shop}">Page</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a th:href="@{/about}">Page</a></li>
+        <li><a th:href="@{/about}">Page</a></li>
+        <li><a th:href="@{/about}">Page</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact us</h4>
+      <ul>
+        <li><a th:href="@{/contact}">Page</a></li>
+        <li><a th:href="@{/contact}">Page</a></li>
+        <li><a th:href="@{/contact}">Page</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
