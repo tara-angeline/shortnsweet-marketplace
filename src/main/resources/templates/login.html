@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Short N' Sweet</title>
+    <link rel="stylesheet" th:href="@{/css/signin.css}">
+</head>
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<!-- Main Content -->
+<main class="signin-page">
+    <div class="signin-container">
+        <div class="signin-content">
+            <h1>Sign in</h1>
+            <p class="signup-link">
+                Don't have an account?
+                <a th:href="@{/register}">Sign up here!</a>
+            </p>
+
+            <!-- Sign In Form -->
+            <form th:action="@{/login}" method="post" class="signin-form">
+
+                <!-- Error Message -->
+                <div th:if="${param.error}" class="error-message">Invalid username or password.</div>
+
+                <!-- Success Message -->
+                <div th:if="${message}" class="success-message" th:text="${message}"></div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                                th:value="${email}">
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your Password"
+                                required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a th:href="@{/forgot-password}" class="forgot-password">Forgot Password ?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-btn">Login</button>
+
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script th:src="@{/js/signin.js}"></script>
+</body>
+</html>

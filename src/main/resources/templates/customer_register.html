@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Short N' Sweet</title>
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+</head>
+<body>
+
+
+<!-- header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Main Content -->
+<main class="signup-page">
+    <div class="signup-container">
+        <div class="signup-content">
+            <h1>Sign up</h1>
+            <p class="signin-link">
+                Already have an account?
+                <a th:href="@{/login}">Log in here!</a>
+            </p>
+
+            <!-- Sign Up Form -->
+            <form th:action="@{/register}" method="post" class="signup-form">
+                <!-- Error Message -->
+                <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+                <!-- Success Message -->
+                <div th:if="${message}" class="success-message" th:text="${message}"></div>
+
+                <!-- First Name Field -->
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                placeholder="Enter your first name"
+                                required
+                                th:value="${firstname}">
+                    </div>
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                placeholder="Enter your last name"
+                                required
+                                th:value="${lastname}">
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                                th:value="${email}">
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your Password"
+                                required
+                                minlength="8">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">👁️</button>
+                    </div>
+                    <small class="password-hint">Password must be at least 8 characters</small>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your Password"
+                                required
+                                minlength="8">
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</button>
+                    </div>
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="register-btn">Create Account</button>
+
+
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script th:src="@{/js/signup.js}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>My Account | Short N' Sweet</title>
+</head>
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<h1>My Account</h1>
+<h2>Welcome back, <span th:text="${user.firstname}"></span>!</h2>
+
+<p>Email: <span th:text="${user.email}"></span></p>
+<p>Role: <span th:text="${user.role}"></span></p>
+
+<a th:href="@{/logout}">Logout</a>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>
