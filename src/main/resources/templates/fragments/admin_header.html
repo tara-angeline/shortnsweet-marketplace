@@ -5,12 +5,12 @@
 <header th:fragment="admin_header">
   <nav>
     <div class="logo">
-      <a th:href="@{/admin}">Short N' Sweet (Admin)</a>
+      <a th:href="@{/admin/dashboard}">Short N' Sweet (Admin)</a>
     </div>
 
     <ul class="nav-links">
       <li>
-        <a th:href="@{/admin}"
+        <a th:href="@{/admin/dashboard}"
            th:classappend="${activePage == 'admin'} ? 'active'">
           Dashboard
         </a>
