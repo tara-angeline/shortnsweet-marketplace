@@ -73,6 +73,39 @@ public class AdminController {
         return "redirect:/admin/products?created";
     }
 
+    //UPDATE PRODUCTS
+    @GetMapping("/products/{id}/edit")
+    public String editProduct(@PathVariable Long id, Model model, HttpSession session) {
+        if (!isAdmin(session)){
+            return denyAccess(session);
+        }
+
+        Product p = productService.getProductById(id);
+        if (p == null){
+            return "redirect:/admin/products?notfound";
+        }
+
+        model.addAttribute("product", p);
+        return "product_form";
+    }
+
+    @PostMapping("/products/{id}")
+    public String updateProduct(@PathVariable Long id, @ModelAttribute Product product, HttpSession session, Model model) {
+        if (!isAdmin(session)){
+            return denyAccess(session);
+        }
+
+        String error = productService.validate(product);
+        if (error != null) {
+            model.addAttribute("error", error);
+            product.setId(id);
+            return "product_form";
+        }
+
+        productService.updateProduct(id, product);
+        return "redirect:/admin/products?updated";
+    }
+
     @GetMapping("/orders")
     public String viewOrders() {
         return "edit";

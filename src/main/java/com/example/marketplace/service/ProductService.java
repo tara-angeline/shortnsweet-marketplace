@@ -42,4 +42,17 @@ public class ProductService {
         if (p.getStock() < 0) return "Stock cannot be negative.";
         return null;
     }
+
+    public void updateProduct(Long id, Product addedProduct) {
+        Product existing = getProductById(id);
+        if (existing == null) return;
+
+        existing.setName(addedProduct.getName());
+        existing.setShortDescription(addedProduct.getShortDescription());
+        existing.setLongDescription(addedProduct.getLongDescription());
+        existing.setPrice(addedProduct.getPrice());
+        existing.setStock(addedProduct.getStock());
+        existing.setImage(addedProduct.getImage());
+        productRepository.save(existing);
+    }
 }
