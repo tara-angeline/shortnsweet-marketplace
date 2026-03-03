@@ -25,6 +25,21 @@ public class ProductService {
     }
 
     public Product getProductById(Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return productRepository.findById(id).orElse(null);
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public void createProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    public String validate(Product p) {
+        if (p.getName() == null || p.getName().trim().isEmpty()) return "Product name is required.";
+        if (p.getPrice() < 0) return "Price cannot be negative.";
+        if (p.getStock() < 0) return "Stock cannot be negative.";
+        return null;
     }
 }

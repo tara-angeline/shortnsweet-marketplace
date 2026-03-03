@@ -179,9 +179,4 @@ public class ProductController {
         model.addAttribute("product", product);
         return "product_detail";
     }
-
-    @GetMapping("/checkout")
-    public String checkout() {
-        return "checkout";
-    }
 }
