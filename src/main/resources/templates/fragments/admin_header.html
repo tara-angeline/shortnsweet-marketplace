@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="admin_header">
+  <nav>
+    <div class="logo">
+      <a th:href="@{/admin}">Short N' Sweet (Admin)</a>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <a th:href="@{/admin}"
+           th:classappend="${activePage == 'admin'} ? 'active'">
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/admin/products}"
+           th:classappend="${activePage == 'admin/products'} ? 'active'">
+          Manage Products
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/admin/orders}"
+           th:classappend="${activePage == 'admin/orders'} ? 'active'">
+          Manage Orders
+        </a>
+      </li>
+      <li>
+        <a th:href="@{/admin/register}"
+           th:classappend="${activePage == 'admin/register'} ? 'active'">
+          Register Admin
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+
+</body>
+</html>

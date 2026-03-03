@@ -51,7 +51,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam String email, @RequestParam String password,
+    public String customerRegister(@RequestParam String email, @RequestParam String password,
                            @RequestParam String firstname, @RequestParam String lastname,
                            @RequestParam String confirmPassword, Model model) {
 
@@ -104,14 +104,71 @@ public class AuthenticationController {
         return "redirect:/login?registered";
     }
 
-    //ADMIN STUFF COME BACK LATER!
-    @GetMapping("/adminlogin")
-    public String adminLogin() {
-        return "admin_login";
+
+    @GetMapping("/admin/register")
+    public String adminRegisterPage(HttpSession session) {
+        var admin = AdminChecker.getAdmin(session);
+        if (admin == null) {
+            return (session.getAttribute("loggedUser") == null) ? "redirect:/login" : "redirect:/";
+        }
+        return "admin_register";
     }
 
-    @GetMapping("/adminregister")
-    public String adminRegister() {
-        return "admin_register";
+    @PostMapping("/admin/register")
+    public String adminRegister(@RequestParam String email, @RequestParam String password,
+                                @RequestParam String firstname, @RequestParam String lastname,
+                                @RequestParam String confirmPassword, HttpSession session, Model model) {
+        var admin = AdminChecker.getAdmin(session);
+        if (admin == null) {
+            return (session.getAttribute("loggedUser") == null) ? "redirect:/login" : "redirect:/";
+        }
+
+        email = email == null ? "" : email.trim();
+        firstname = firstname == null ? "" : firstname.trim();
+        lastname = lastname == null ? "" : lastname.trim();
+
+        if (firstname.isBlank() || lastname.isBlank()) {
+            model.addAttribute("error", "First name and last name are required.");
+            model.addAttribute("email", email);
+            model.addAttribute("firstname", firstname);
+            model.addAttribute("lastname", lastname);
+            return "admin_register";
+        }
+
+        if (email.isBlank()) {
+            model.addAttribute("error", "Email is required.");
+            model.addAttribute("email", email);
+            model.addAttribute("firstname", firstname);
+            model.addAttribute("lastname", lastname);
+            return "admin_register";
+        }
+
+        if (password == null || password.length() < 8) {
+            model.addAttribute("error", "Password must be at least 8 characters.");
+            model.addAttribute("email", email);
+            model.addAttribute("firstname", firstname);
+            model.addAttribute("lastname", lastname);
+            return "admin_register";
+        }
+
+        if (!password.equals(confirmPassword)) {
+            model.addAttribute("error", "Passwords do not match.");
+            model.addAttribute("email", email);
+            model.addAttribute("firstname", firstname);
+            model.addAttribute("lastname", lastname);
+            return "admin_register";
+        }
+
+        var error = authService.registerAdmin(email, password, firstname, lastname);
+
+        if (error.isPresent()) {
+            model.addAttribute("error", error.get());
+            model.addAttribute("email", email);
+            model.addAttribute("firstname", firstname);
+            model.addAttribute("lastname", lastname);
+            return "admin_register";
+        }
+
+        return "redirect:/admin?adminCreated";
     }
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard Dessertbox Dublin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/admin_header :: admin_header}"></div>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 th:text="'Hello Admin ' + ${adminName} + '!'">Hello Admin!</h1>
+        <p>
+            What are we doing today? :)
+        </p>
+        <a th:href="@{/logout}" class="btn">Logout</a>
+    </div>
+
+    <div class="hero-image">
+        <!-- hero image -->
+    </div>
+</section>
+
+<section class="admin">
+    <h2>Dashboard</h2>
+
+    <div class="admin-action-grid">
+        <a class="admin-action-card" th:href="@{/admin/products}">
+            <img th:src="@{/images/dark-chocolate.jpg}" alt="Manage Products">
+            <h3>Manage Products</h3>
+            <p>Create, edit, or delete products.</p>
+        </a>
+
+        <a class="admin-action-card" th:href="@{/admin/orders}">
+            <img th:src="@{/images/dark-chocolate.jpg}" alt="Manage Orders">
+            <h3>Manage Orders</h3>
+            <p>View orders and update statuses.</p>
+        </a>
+
+        <a class="admin-action-card" th:href="@{/admin/register}">
+            <img th:src="@{/images/dark-chocolate.jpg}" alt="Register Admin">
+            <h3>Register Admin</h3>
+            <p>Create new admin credentials.</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

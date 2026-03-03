@@ -52,5 +52,32 @@ public class AuthenticationService {
 
         return Optional.empty();
     }
+
+    public Optional<String> registerAdmin(String email, String password, String firstname, String lastname) {
+        if (email == null || email.isBlank()){
+            return Optional.of("Email is required.");
+        }
+
+        if (password == null || password.isBlank()){
+            return Optional.of("Password is required.");
+        }
+
+        if (firstname == null || firstname.isBlank()){
+            return Optional.of("First name is required.");
+        }
+
+        if (lastname == null || lastname.isBlank()){
+            return Optional.of("Last name is required.");
+        }
+
+        if (userRepository.existsByEmail(email)){
+            return Optional.of("An account with that email already exists.");
+        }
+
+        User user = new User(email, password, Role.ADMIN, firstname, lastname);
+        userRepository.save(user);
+
+        return Optional.empty();
+    }
 }
 
