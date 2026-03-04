@@ -11,10 +11,61 @@
 <h1>My Account</h1>
 <h2>Welcome back, <span th:text="${user.firstname}"></span>!</h2>
 
+<p>Name: <span th:text="${user.firstname} + ' ' + ${user.lastname}"></span></p>
 <p>Email: <span th:text="${user.email}"></span></p>
-<p>Role: <span th:text="${user.role}"></span></p>
 
 <a th:href="@{/logout}">Logout</a>
+
+<section class="account-orders">
+  <h2>Order History</h2>
+
+  <div th:if="${orders == null || #lists.isEmpty(orders)}">
+    <p>You have no orders yet.</p>
+    <a th:href="@{/shop}"><button class="btn primary">Start shopping</button></a>
+  </div>
+
+  <div th:if="${orders != null && !#lists.isEmpty(orders)}">
+    <div th:each="o : ${orders}" class="order-card" style="border:1px solid #eee; border-radius:12px; padding:12px; margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>
+          <strong>Order #</strong><span th:text="${o.id}">1</span><br>
+          <span class="muted">Placed:</span>
+          <span th:text="${#temporals.format(o.createdAt, 'dd MMM yyyy HH:mm')}">date</span><br>
+          <span class="muted">Status:</span>
+          <span th:text="${o.status}">PLACED</span>
+        </div>
+
+        <div style="text-align:right;">
+          <strong>Total:</strong>
+          <span th:text="${#numbers.formatDecimal(o.total, 1, 2)}">0.00</span>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <table style="width:100%; border-collapse:collapse;">
+          <thead>
+          <tr>
+            <th style="text-align:left; padding:6px 4px; border-bottom:1px solid #eee;">Item</th>
+            <th style="text-align:right; padding:6px 4px; border-bottom:1px solid #eee;">Price</th>
+            <th style="text-align:right; padding:6px 4px; border-bottom:1px solid #eee;">Qty</th>
+            <th style="text-align:right; padding:6px 4px; border-bottom:1px solid #eee;">Line</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="it : ${o.items}">
+            <td style="padding:6px 4px;" th:text="${it.oldName}">Name</td>
+            <td style="padding:6px 4px; text-align:right;" th:text="${#numbers.formatDecimal(it.oldPrice,1,2)}">0.00</td>
+            <td style="padding:6px 4px; text-align:right;" th:text="${it.quantity}">1</td>
+            <td style="padding:6px 4px; text-align:right;"
+                th:text="${#numbers.formatDecimal(it.oldPrice * it.quantity,1,2)}">0.00</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
