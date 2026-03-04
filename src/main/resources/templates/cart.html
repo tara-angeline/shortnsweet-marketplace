@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="item-price">
-                        <span th:text="'$' + ${#numbers.formatDecimal(item.unitPrice, 1, 2)}">$10.99</span>
+                        <span th:text="'€' + ${#numbers.formatDecimal(item.unitPrice, 1, 2)}">€10.99</span>
                     </div>
 
                     <div class="item-remove">
@@ -75,22 +75,22 @@
                 <div class="summary-content">
                     <div class="summary-row">
                         <span>Subtotal</span>
-                        <span th:text="'$' + ${#numbers.formatDecimal(subtotal, 1, 2)}">$21.98</span>
+                        <span th:text="'€' + ${#numbers.formatDecimal(subtotal, 1, 2)}">€21.98</span>
                     </div>
 
                     <div class="summary-row">
                         <span>Shipping</span>
-                        <span th:text="'$' + ${#numbers.formatDecimal(shipping, 1, 2)}">$4.00</span>
+                        <span th:text="'€' + ${#numbers.formatDecimal(shipping, 1, 2)}">€4.00</span>
                     </div>
 
                     <div class="summary-row total">
                         <span>Total (Tax incl.)</span>
-                        <span th:text="'$' + ${#numbers.formatDecimal(total, 1, 2)}">$25.98</span>
+                        <span th:text="'€' + ${#numbers.formatDecimal(total, 1, 2)}">€25.98</span>
                     </div>
 
-                    <form th:action="@{/checkout}" method="post">
+                    <form th:action="@{/checkout}" method="get">
                         <button type="submit" class="checkout-btn">
-                            <span th:text="'$' + ${#numbers.formatDecimal(total, 1, 2)}">$25.98</span>
+                            <span th:text="'€' + ${#numbers.formatDecimal(total, 1, 2)}">€25.98</span>
                             <span>Checkout</span>
                             <span class="arrow">→</span>
                         </button>
