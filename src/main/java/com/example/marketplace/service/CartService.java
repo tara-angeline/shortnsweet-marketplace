@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CartService {
-    public static final String CART_SESSION_KEY = "CART";
+    public static final String CART_SESSION_KEY = "cart";
 
     private final ProductService productService;
 

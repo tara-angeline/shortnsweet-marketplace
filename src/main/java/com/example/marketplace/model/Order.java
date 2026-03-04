@@ -17,7 +17,7 @@ public class Order {
     private User user;
 
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -26,14 +26,13 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
 
+    @Column(nullable = false)
+    private double total;
+
 
     public void addItem(OrderItem item) {
         items.add(item);
         item.setOrder(this);
-    }
-
-    public double getTotal() {
-        return items.stream().mapToDouble(OrderItem::getLineTotal).sum();
     }
 
     public Long getId() {
@@ -75,4 +74,13 @@ public class Order {
     public void setItems(List<OrderItem> items) {
         this.items = items;
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
 }

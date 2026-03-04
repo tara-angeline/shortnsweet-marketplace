@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Short N' Sweet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <style></style>
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+  <h1>Checkout</h1>
+
+  <div class="grid">
+
+    <!-- LEFT: Order Summary -->
+    <div class="card">
+      <h2>Order Summary</h2>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Item</th>
+          <th class="right">Price</th>
+          <th class="right">Qty</th>
+          <th class="right">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i : ${cart.items}">
+          <td th:text="${i.name}">Product</td>
+          <td class="right" th:text="${#numbers.formatDecimal(i.unitPrice,1,2)}">0.00</td>
+          <td class="right" th:text="${i.quantity}">1</td>
+          <td class="right" th:text="${#numbers.formatDecimal(i.lineTotal,1,2)}">0.00</td>
+        </tr>
+
+        <tr>
+          <td colspan="3" class="right"><strong>Total</strong></td>
+          <td class="right">
+            <strong th:text="${#numbers.formatDecimal(total,1,2)}">0.00</strong>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RIGHT: Delivery + Payment -->
+    <div class="card">
+
+      <form th:action="@{/checkout/place}" method="post">
+
+        <!-- DELIVERY DETAILS -->
+        <h2>Delivery Details</h2>
+
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" name="fullName" required>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="field">
+          <label>Address Line 1</label>
+          <input type="text" name="address1" required>
+        </div>
+
+        <div class="field">
+          <label>Address Line 2</label>
+          <input type="text" name="address2">
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>City</label>
+            <input type="text" name="city" required>
+          </div>
+          <div class="field">
+            <label>Postal Code</label>
+            <input type="text" name="postcode" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Country</label>
+          <select name="country">
+            <option>Ireland</option>
+            <option>United Kingdom</option>
+            <option>France</option>
+            <option>Germany</option>
+          </select>
+        </div>
+
+        <hr style="margin:20px 0;">
+
+        <!-- PAYMENT DETAILS (DUMMY) -->
+        <h2>Payment Details (Demo)</h2>
+
+        <div class="notice">
+          This is a demo payment form. No real payment is processed.
+        </div>
+
+        <div class="field">
+          <label>Name on Card</label>
+          <input type="text" name="cardName" required>
+        </div>
+
+        <div class="field">
+          <label>Card Number</label>
+          <input type="text" name="cardNumber" maxlength="19" required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Expiry (MM/YY)</label>
+            <input type="text" name="expiry" placeholder="12/30" required>
+          </div>
+          <div class="field">
+            <label>CVV</label>
+            <input type="text" name="cvv" maxlength="4" required>
+          </div>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn primary">Place Order</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

@@ -105,5 +105,4 @@ public class Product {
     public void setActive(boolean newActive) {
         active = newActive;
     }
-
 }

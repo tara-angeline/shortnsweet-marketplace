@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 
     private final CartService cartService;
@@ -16,7 +17,7 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @GetMapping("/cart")
+    @GetMapping("")
     public String viewCart(Model model, HttpSession session) {
         Cart cart = cartService.getCart(session);
         model.addAttribute("cartItems", cart.getItems());
@@ -26,19 +27,19 @@ public class CartController {
         return "cart";
     }
 
-    @PostMapping("/cart/add")
+    @PostMapping("/add")
     public String addToCart(@RequestParam Long productId, @RequestParam(defaultValue = "1") int quantity, HttpSession session) {
         cartService.addToCart(productId, quantity, session);
         return "redirect:/cart";
     }
 
-    @PostMapping("/cart/update")
+    @PostMapping("/update")
     public String updateQuantity(@RequestParam Long productId, @RequestParam int quantity, HttpSession session) {
         cartService.updateQuantity(productId, quantity, session);
         return "redirect:/cart";
     }
 
-    @PostMapping("/cart/remove")
+    @PostMapping("/remove")
     public String removeItem(@RequestParam Long productId, HttpSession session) {
         cartService.remove(productId, session);
         return "redirect:/cart";

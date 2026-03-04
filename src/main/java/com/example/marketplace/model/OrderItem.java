@@ -27,6 +27,16 @@ public class OrderItem {
     @Column(name = "old_price", nullable = false)
     private double oldPrice;
 
+    public OrderItem(){}
+
+    public OrderItem(Order order, Product product, int quantity, String oldName, double oldPrice) {
+        this.order = order;
+        this.product = product;
+        this.quantity = quantity;
+        this.oldName = oldName;
+        this.oldPrice = oldPrice;
+    }
+
     public double getLineTotal() {
         return oldPrice * quantity;
     }
