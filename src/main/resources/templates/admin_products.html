@@ -45,8 +45,12 @@
                     <button class="btn primary">Edit</button>
                 </a>
 
-                <form th:action="@{'/admin/products/' + ${p.id} + '/delete'}" method="post">
-                    <button class="btn danger" type="submit">Delete</button>
+                <form th:if="${p.active}" th:action="@{'/admin/products/' + ${p.id} + '/hide'}" method="post">
+                    <button class="btn danger" type="submit">Hide</button>
+                </form>
+
+                <form th:if="${!p.active}" th:action="@{'/admin/products/' + ${p.id} + '/unhide'}" method="post">
+                    <button class="btn primary" type="submit">Unhide</button>
                 </form>
 
             </td>

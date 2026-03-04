@@ -27,15 +27,19 @@ public class Product {
     @Column(nullable = false)
     private String image;
 
+    @Column(nullable = false)
+    private boolean active = true;
+
     public Product() {}
 
-    public Product(String name, String shortDescription, String longDescription, double price, int stock, String image) {
+    public Product(String name, String shortDescription, String longDescription, double price, int stock, String image, boolean active) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
         this.price = price;
         this.stock = stock;
         this.image = image;
+        this.active = active;
     }
 
     public Long getId() {
@@ -93,4 +97,13 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean newActive) {
+        active = newActive;
+    }
+
 }

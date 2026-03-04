@@ -1,6 +1,7 @@
 package com.example.marketplace.controller;
 
 import com.example.marketplace.model.Product;
+import com.example.marketplace.model.User;
 import com.example.marketplace.service.AuthenticationService;
 import com.example.marketplace.service.ProductService;
 import jakarta.servlet.http.HttpSession;
@@ -29,10 +30,13 @@ public class AdminController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard(HttpSession session) {
+    public String dashboard(HttpSession session, Model model) {
         if (!isAdmin(session)){
             return denyAccess(session);
         }
+
+        User user = (User) session.getAttribute("loggedUser");
+        model.addAttribute("user", user);
         return "admin";
     }
 
@@ -104,6 +108,31 @@ public class AdminController {
 
         productService.updateProduct(id, product);
         return "redirect:/admin/products?updated";
+    }
+
+    // HIDE/UNHIDE PRODUCT
+    @PostMapping("/products/{id}/hide")
+    public String hide(@PathVariable Long id, HttpSession session) {
+        if (!isAdmin(session)) {
+            return denyAccess(session);
+        }
+
+        Product p = productService.getProductById(id);
+
+        productService.hideProduct(p);
+        return "redirect:/admin/products?hide";
+    }
+
+    @PostMapping("/products/{id}/unhide")
+    public String unhide(@PathVariable Long id, HttpSession session) {
+        if (!isAdmin(session)) {
+            return denyAccess(session);
+        }
+
+        Product p = productService.getProductById(id);
+
+        productService.unhideProduct(p);
+        return "redirect:/admin/products?unhide";
     }
 
     @GetMapping("/orders")

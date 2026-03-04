@@ -21,7 +21,7 @@ public class ProductService {
             return productRepository.findAll();
         }
 
-        return productRepository.findByNameContainingIgnoreCase(keyword);
+        return productRepository.findByNameContainingIgnoreCaseAndActiveTrue(keyword);
     }
 
     public Product getProductById(Long id) {
@@ -33,6 +33,7 @@ public class ProductService {
     }
 
     public void createProduct(Product product) {
+        product.setActive(true);
         productRepository.save(product);
     }
 
@@ -54,5 +55,15 @@ public class ProductService {
         existing.setStock(addedProduct.getStock());
         existing.setImage(addedProduct.getImage());
         productRepository.save(existing);
+    }
+
+    public void hideProduct(Product product){
+        product.setActive(false);
+        productRepository.save(product);
+    }
+
+    public void unhideProduct(Product product){
+        product.setActive(true);
+        productRepository.save(product);
     }
 }
