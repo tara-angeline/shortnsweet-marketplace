@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View Orders - Short N' Sweet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/admin_header :: admin_header}"></div>
+
+<section class="admin">
+  <a th:href="@{/admin/orders}"><button class="btn">← Back</button></a>
+
+  <h1>Order #<span th:text="${order.id}">1</span></h1>
+
+  <div th:if="${param.updated}" class="success-message">Order updated.</div>
+  <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+  <div style="display:flex; gap:24px; flex-wrap:wrap; margin: 12px 0;">
+    <div>
+      <strong>Customer Name:</strong>
+      <span th:text="|${order.user.firstname} ${order.user.lastname}|">Lorem Ipsum</span><br>
+
+      <strong>Customer Email:</strong>
+      <span th:text="${order.user.email}">email@example.com</span><br>
+
+      <strong>Date:</strong>
+      <span th:text="${#temporals.format(order.createdAt, 'dd MMM yyyy HH:mm')}">date</span><br>
+
+      <strong>Total:</strong>
+      <span th:text="${#numbers.formatDecimal(order.total,1,2)}">0.00</span>
+    </div>
+
+    <div>
+      <form th:action="@{'/admin/orders/' + ${order.id} + '/status'}" method="post">
+        <label><strong>Status</strong></label><br>
+        <select name="status">
+          <option th:each="s : ${statuses}"
+                  th:value="${s}"
+                  th:text="${s}"
+                  th:selected="${s == order.status}">
+          </option>
+        </select>
+        <button class="btn primary" type="submit" style="margin-left:8px;">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <h2>Order Items</h2>
+  <table class="admin-table">
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price (at purchase)</th>
+      <th>Qty</th>
+      <th>Line</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="it : ${order.items}">
+      <td th:text="${it.oldName}">Name</td>
+      <td th:text="${#numbers.formatDecimal(it.oldPrice,1,2)}">0.00</td>
+      <td th:text="${it.quantity}">1</td>
+      <td th:text="${#numbers.formatDecimal(it.oldPrice * it.quantity,1,2)}">0.00</td>
+    </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

@@ -1,8 +1,10 @@
 package com.example.marketplace.controller;
 
+import com.example.marketplace.model.OrderStatus;
 import com.example.marketplace.model.Product;
 import com.example.marketplace.model.User;
 import com.example.marketplace.service.AuthenticationService;
+import com.example.marketplace.service.OrderService;
 import com.example.marketplace.service.ProductService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
 
     private final ProductService productService;
+    private final OrderService orderService;
     private final AuthenticationService authService;
 
-    public AdminController(ProductService productService, AuthenticationService authService) {
+    public AdminController(ProductService productService, OrderService orderService, AuthenticationService authService) {
         this.productService = productService;
+        this.orderService = orderService;
         this.authService = authService;
     }
 
@@ -58,7 +62,7 @@ public class AdminController {
         }
 
         model.addAttribute("product", new Product());
-        return "product_form";
+        return "admin_product_form";
     }
 
     @PostMapping("/products")
@@ -90,7 +94,7 @@ public class AdminController {
         }
 
         model.addAttribute("product", p);
-        return "product_form";
+        return "admin_product_form";
     }
 
     @PostMapping("/products/{id}")
@@ -103,7 +107,7 @@ public class AdminController {
         if (error != null) {
             model.addAttribute("error", error);
             product.setId(id);
-            return "product_form";
+            return "admin_product_form";
         }
 
         productService.updateProduct(id, product);
@@ -135,9 +139,37 @@ public class AdminController {
         return "redirect:/admin/products?unhide";
     }
 
+    //VIEW ALL ORDERS
     @GetMapping("/orders")
-    public String viewOrders() {
-        return "edit";
+    public String viewAllOrders(HttpSession session, Model model) {
+        if (!isAdmin(session)) {
+            return denyAccess(session);
+        }
+
+        model.addAttribute("orders", orderService.getAllOrdersNewestFirst());
+        model.addAttribute("statuses", OrderStatus.values());
+        return "admin_orders";
+    }
+
+    @GetMapping("/orders/{id}")
+    public String viewOrder(@PathVariable Long id, HttpSession session, Model model) {
+        if (!isAdmin(session)) {
+            return denyAccess(session);
+        }
+
+        model.addAttribute("order", orderService.getOrderWithItems(id));
+        model.addAttribute("statuses", OrderStatus.values());
+        return "admin_order_form";
+    }
+
+    @PostMapping("/orders/{id}/status")
+    public String updateOrderStatus(@PathVariable Long id, @RequestParam OrderStatus status, HttpSession session) {
+        if (!isAdmin(session)) {
+            return denyAccess(session);
+        }
+
+        orderService.updateOrderStatus(id, status);
+        return "redirect:/admin/orders?updated";
     }
 
     //ADMIN REGISTER
@@ -204,7 +236,7 @@ public class AdminController {
             return "admin_register";
         }
 
-        return "redirect:/admin?adminCreated";
+        return "redirect:/admin/dashboard?admincreated";
     }
 
 }

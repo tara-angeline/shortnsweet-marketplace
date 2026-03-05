@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View Orders - Short N' Sweet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/admin_header :: admin_header}"></div>
+
+<section class="admin">
+  <h1>All Orders</h1>
+
+<!--  <div th:if="${success}" class="success-message" th:text="${success}"></div>-->
+<!--  <div th:if="${error}" class="error-message" th:text="${error}"></div>-->
+
+  <table class="admin-table">
+    <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Date</th>
+      <th>Customer</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th>Items</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="o : ${orders}">
+      <td th:text="${o.id}">1</td>
+      <td th:text="${#temporals.format(o.createdAt, 'dd MMM yyyy HH:mm')}">date</td>
+      <td th:text="${o.user.email}">email</td>
+      <td th:text="${o.status}">PLACED</td>
+      <td th:text="${#numbers.formatDecimal(o.total,1,2)}">0.00</td>
+      <td th:text="${#aggregates.sum(o.items.![quantity])}">0</td>
+      <td>
+        <a th:href="@{'/admin/orders/' + ${o.id}}">
+          <button class="btn primary" type="button">View</button>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

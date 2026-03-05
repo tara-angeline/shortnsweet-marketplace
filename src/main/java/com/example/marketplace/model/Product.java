@@ -15,7 +15,7 @@ public class Product {
     @Column(nullable = false)
     private String shortDescription;
 
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = false, length = 5000)
     private String longDescription;
 
     @Column(nullable = false)

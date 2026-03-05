@@ -26,9 +26,7 @@
         short description
       </p>
 
-      <p class="long-desc" th:text="${product.longDescription}">
-        description
-      </p>
+      <div class="long-desc" th:utext="${product.longDescription}"></div>
 
       <div class="price-row">
         <span class="price" th:text="'€' + ${product.price}">€0.00</span>

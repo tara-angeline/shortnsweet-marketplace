@@ -42,17 +42,17 @@
           <div class="input-wrapper">
             <span class="input-icon">📝</span>
             <input type="text" id="shortDescription" name="shortDescription"
-                   placeholder="Short description" th:value="${product.shortDescription}">
+                   placeholder="Enter short description" th:value="${product.shortDescription}">
           </div>
         </div>
 
         <!-- Long Description -->
         <div class="form-group">
-          <label for="longDescription">Long Description</label>
+          <label for="longDescription">Long Description (HTML formatted)</label>
           <div class="input-wrapper">
             <span class="input-icon">📄</span>
             <textarea id="longDescription" name="longDescription" rows="5"
-                      placeholder="Full product description"
+                      placeholder="Enter full product description"
                       th:text="${product.longDescription}"></textarea>
           </div>
         </div>
@@ -79,11 +79,11 @@
 
         <!-- Image -->
         <div class="form-group">
-          <label for="image">Image (filename or URL)</label>
+          <label for="image">Image (formatted directory)</label>
           <div class="input-wrapper">
             <span class="input-icon">🖼️</span>
             <input type="text" id="image" name="image"
-                   placeholder="e.g. dark-chocolate.jpg or https://..." th:value="${product.image}">
+                   placeholder="e.g. /product_img/ProductName_Name.png" th:value="${product.image}">
           </div>
         </div>
 

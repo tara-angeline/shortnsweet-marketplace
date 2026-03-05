@@ -3,10 +3,9 @@ package com.example.marketplace.service;
 import com.example.marketplace.model.*;
 import com.example.marketplace.repository.OrderRepository;
 import com.example.marketplace.repository.ProductRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -19,14 +18,13 @@ public class OrderService {
         this.productRepository = productRepository;
     }
 
-    @Transactional
     public Order placeOrder(User user, Cart cart) {
         if (user == null) throw new IllegalStateException("Login required.");
         if (cart == null || cart.isEmpty()) throw new IllegalStateException("Cart is empty.");
 
         Order order = new Order();
         order.setUser(user);
-        order.setStatus(OrderStatus.PROCESSED);
+        order.setStatus(OrderStatus.PROCESSING);
 
         for (CartItem cartitem : cart.getItems()) {
             Long productId = cartitem.getProductId();
@@ -55,4 +53,19 @@ public class OrderService {
         return orderRepository.save(order);
 
     }
+
+    public List<Order> getAllOrdersNewestFirst() {
+        return orderRepository.findAllWithItemsNewestFirst();
+    }
+
+    public Order getOrderWithItems(Long id) {
+        return orderRepository.findByIdWithItems(id).orElseThrow();
+    }
+
+    public void updateOrderStatus(Long id, OrderStatus status) {
+        Order order = orderRepository.findById(id).orElseThrow();
+        order.setStatus(status);
+        orderRepository.save(order);
+    }
+
 }
