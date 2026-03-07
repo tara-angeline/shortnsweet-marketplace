@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer th:fragment="admin_footer" class="footer">
+  <div class="container footer-container">
+
+    <div class="footer-left">
+      <h3>Short N' Sweet</h3>
+      <p>Tara Ava Angeline &copy; <span th:text="${#dates.year(#dates.createNow())}"></span> - All Rights Reserved</p>
+    </div>
+
+    <div class="footer-links">
+      <a th:href="@{/admin/dashboard}">Dashboard</a>
+      <a th:href="@{/admin/products}">Products</a>
+      <a th:href="@{/admin/orders}">Orders</a>
+      <a th:href="@{/admin/register}">Register Admin</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://instagram.com"><i class='bx bxl-instagram'></i></a>
+      <a href="https://tiktok.com"><i class='bx bxl-tiktok'></i></a>
+      <a href="https://facebook.com"><i class='bx bxl-facebook'></i></a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

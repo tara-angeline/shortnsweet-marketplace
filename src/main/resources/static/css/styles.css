@@ -63,7 +63,7 @@ nav .navbar {
 .navbar .links {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 24px;
     height: 100%;
     margin: 0;
     padding: 0;
