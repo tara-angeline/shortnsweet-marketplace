@@ -18,6 +18,7 @@
   <div class="signup-container">
     <div class="signup-content">
       <h1>Create New Admin</h1>
+      <p class="admin-disclaimer">New admin credentials can only be created by an existing admin.</p>
 
       <!-- Sign Up Form -->
       <form th:action="@{/admin/register}" method="post" class="signup-form">
@@ -36,7 +37,7 @@
                     type="text"
                     id="firstname"
                     name="firstname"
-                    placeholder="Enter your first name"
+                    placeholder="Enter first name"
                     required
                     th:value="${firstname}">
           </div>
@@ -51,7 +52,7 @@
                     type="text"
                     id="lastname"
                     name="lastname"
-                    placeholder="Enter your last name"
+                    placeholder="Enter last name"
                     required
                     th:value="${lastname}">
           </div>
@@ -66,7 +67,7 @@
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Enter your email address"
+                    placeholder="Enter email address"
                     required
                     th:value="${email}">
           </div>
@@ -81,7 +82,7 @@
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="Enter your Password"
+                    placeholder="Enter Password"
                     required
                     minlength="8">
             <i class='bx bx-show toggle-password' onclick="togglePassword(this)"></i>
@@ -98,7 +99,7 @@
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    placeholder="Confirm your Password"
+                    placeholder="Confirm Password"
                     required
                     minlength="8">
             <i class='bx bx-show toggle-password' onclick="togglePassword(this)"></i>

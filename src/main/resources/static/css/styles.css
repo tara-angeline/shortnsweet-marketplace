@@ -914,6 +914,15 @@ nav .navbar {
     padding: 20px;
 }
 
+.admin-signup-page h1{
+    margin-bottom: 10px;
+}
+
+.admin-disclaimer{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
 .signup-page {
     display: flex;
     background-image: url('/background_2.png');
@@ -934,9 +943,12 @@ nav .navbar {
     max-width: 600px;
 }
 
-/* Sign-up Form */
-.signup-content {
+.signup-page.signup-content {
     text-align: center;
+}
+
+.admin-signup-page.signup-content{
+    text-align:left;
 }
 
 .signup-page input, .admin-signup-page input {
@@ -1198,7 +1210,8 @@ nav .navbar {
 
 /*---------------------CART----------------*/
 .cart-page {
-    padding: 50px 20px;
+    padding: 50px 60px;
+    height: 70vh;
 }
 
 .container {
@@ -1692,11 +1705,10 @@ select:focus {
     box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
-/* Image */
-.admin-action-card img {
-    width: fit-content;
-    height: 180px;
-    object-fit: cover;
+.admin-icon {
+    font-size: 160px;
+    margin-bottom: 10px;
+    margin: 18px 16px 6px;
 }
 
 /* Title */
@@ -2156,6 +2168,10 @@ button.btn.success:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.footer-social i {
+    font-size: 28px;
 }
 
 .footer a {

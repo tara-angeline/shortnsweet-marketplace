@@ -16,7 +16,8 @@
         <h1>Your Cart</h1>
 
         <p class="cart-summary">
-            <span th:with="qty=${#aggregates.sum(cartItems.![quantity])}" th:text="'You have ' + ${qty} + ' item' + (${qty} != 1 ? 's' : '') + ' in your cart'">
+            <span th:with="qty=${#aggregates.sum(cartItems.![quantity]) ?: 0}"
+                  th:text="'You have ' + ${qty} + ' item' + (${qty} != 1 ? 's' : '') + ' in your cart'">
                 You have 2 items in your cart
             </span>
         </p>
