@@ -31,7 +31,7 @@
         <div class="form-group">
           <label for="firstname">First Name</label>
           <div class="input-wrapper">
-            <img class="input-icon" th:src="@{/svg/account-icon.svg}" alt="Firstname Icon" width="24" height="24">
+            <i class='bx input-icon bx-user'></i>
             <input
                     type="text"
                     id="firstname"
@@ -46,7 +46,7 @@
         <div class="form-group">
           <label for="lastname">Last Name</label>
           <div class="input-wrapper">
-            <img class="input-icon" th:src="@{/svg/account-icon.svg}" alt="Lastname Icon" width="24" height="24">
+            <i class='bx input-icon bx-user'></i>
             <input
                     type="text"
                     id="lastname"
@@ -61,7 +61,7 @@
         <div class="form-group">
           <label for="email">Email</label>
           <div class="input-wrapper">
-            <img class="input-icon" th:src="@{/svg/email-icon.svg}" alt="Email Icon" width="24" height="24">
+            <i class='bx input-icon bx-envelope'></i>
             <input
                     type="email"
                     id="email"
@@ -76,7 +76,7 @@
         <div class="form-group">
           <label for="password">Password</label>
           <div class="input-wrapper">
-            <img class="input-icon" th:src="@{/svg/lock-icon.svg}" alt="Password Icon" width="24" height="24">
+            <i class='bx input-icon bx-lock'></i>
             <input
                     type="password"
                     id="password"
@@ -84,7 +84,7 @@
                     placeholder="Enter your Password"
                     required
                     minlength="8">
-            <img class="toggle-password" th:src="@{/svg/eye-icon.svg}" alt="Show/Hide Password" width="24" height="24" onclick="togglePassword()">
+            <i class='bx bx-show toggle-password' onclick="togglePassword(this)"></i>
           </div>
           <small class="password-hint">Password must be at least 8 characters</small>
         </div>
@@ -93,7 +93,7 @@
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
           <div class="input-wrapper">
-            <img class="input-icon" th:src="@{/svg/lock-icon.svg}" alt="Password Icon" width="24" height="24">
+            <i class='bx input-icon bx-lock'></i>
             <input
                     type="password"
                     id="confirmPassword"
@@ -101,7 +101,7 @@
                     placeholder="Confirm your Password"
                     required
                     minlength="8">
-            <img class="toggle-password" th:src="@{/svg/eye-icon.svg}" alt="Show/Hide Password" width="24" height="24" onclick="togglePassword()">
+            <i class='bx bx-show toggle-password' onclick="togglePassword(this)"></i>
           </div>
         </div>
 
