@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Short N' Sweet</title>
-    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <title>Sign Up | Short N' Sweet</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
@@ -22,19 +22,15 @@
                 <a th:href="@{/login}">Log in here!</a>
             </p>
 
-            <!-- Sign Up Form -->
             <form th:action="@{/register}" method="post" class="signup-form">
-                <!-- Error Message -->
-                <div th:if="${error}" class="error-message" th:text="${error}"></div>
 
-                <!-- Success Message -->
+                <div th:if="${error}" class="error-message" th:text="${error}"></div>
                 <div th:if="${param.registered}" class="success-message">Customer account created successfully!</div>
 
-                <!-- First Name Field -->
                 <div class="form-group">
                     <label for="firstname">First Name</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">👤</span>
+                        <img class="input-icon" th:src="@{/svg/account-icon.svg}" alt="Firstname Icon" width="24" height="24">
                         <input
                                 type="text"
                                 id="firstname"
@@ -45,11 +41,10 @@
                     </div>
                 </div>
 
-                <!-- Last Name Field -->
                 <div class="form-group">
                     <label for="lastname">Last Name</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">👤</span>
+                        <img class="input-icon" th:src="@{/svg/account-icon.svg}" alt="Lastname Icon" width="24" height="24">
                         <input
                                 type="text"
                                 id="lastname"
@@ -60,11 +55,10 @@
                     </div>
                 </div>
 
-                <!-- Email Field -->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">✉️</span>
+                        <img class="input-icon" th:src="@{/svg/email-icon.svg}" alt="Email Icon" width="24" height="24">
                         <input
                                 type="email"
                                 id="email"
@@ -75,11 +69,10 @@
                     </div>
                 </div>
 
-                <!-- Password Field -->
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">🔒</span>
+                        <img class="input-icon" th:src="@{/svg/lock-icon.svg}" alt="Password Icon" width="24" height="24">
                         <input
                                 type="password"
                                 id="password"
@@ -87,16 +80,15 @@
                                 placeholder="Enter your Password"
                                 required
                                 minlength="8">
-                        <button type="button" class="toggle-password" onclick="togglePassword('password')">👁️</button>
+                        <img class="toggle-password" th:src="@{/svg/eye-icon.svg}" alt="Show/Hide Password" width="24" height="24" onclick="togglePassword()">
                     </div>
                     <small class="password-hint">Password must be at least 8 characters</small>
                 </div>
 
-                <!-- Confirm Password Field -->
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">🔒</span>
+                        <img class="input-icon" th:src="@{/svg/lock-icon.svg}" alt="Password Icon" width="24" height="24">
                         <input
                                 type="password"
                                 id="confirmPassword"
@@ -104,11 +96,10 @@
                                 placeholder="Confirm your Password"
                                 required
                                 minlength="8">
-                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</button>
+                        <img class="toggle-password" th:src="@{/svg/eye-icon.svg}" alt="Show/Hide Password" width="24" height="24" onclick="togglePassword()">
                     </div>
                 </div>
 
-                <!-- Register Button -->
                 <button type="submit" class="register-btn">Create Account</button>
 
 
@@ -120,6 +111,6 @@
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
 
-<script th:src="@{/js/signup.js}"></script>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>

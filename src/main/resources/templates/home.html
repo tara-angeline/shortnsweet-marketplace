@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Short N' Sweet | Dessertbox Dublin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -22,32 +20,17 @@
         </p>
         <a th:href="@{/shop}" class="btn">Shop Now</a>
     </div>
-
-    <div class="hero-image">
-        <img th:src="@{/hero_img.png}" alt="Hero Image">
-    </div>
 </section>
 
 <section class="featured">
     <h2>Dublin’s Most Loved</h2>
 
     <div class="product-grid">
-        <div class="product-card">
-            <img th:src="@{/product_img/DarkChocolate_Main.png}" alt="Dark Chocolate">
-            <h3>Dark Chocolate</h3>
-            <p>Body text for whatever you'd like to add more to the subheading.</p>
-        </div>
-
-        <div class="product-card">
-            <img th:src="@{/product_img/LotusBiscoff_Main.png}" alt="Lotus Biscoff">
-            <h3>Lotus Biscoff</h3>
-            <p>Body text for whatever you'd like to expand on the main point.</p>
-        </div>
-
-        <div class="product-card">
-            <img th:src="@{/product_img/Tiramisu_Main.png}" alt="Tiramisu">
-            <h3>Tiramisu</h3>
-            <p>Body text for whatever you'd like to share more.</p>
+        <div th:each="product : ${products}" class="product-card"
+             th:onclick="|window.location='@{/productdetail(id=${product.id})}'|">
+            <img th:src="@{${product.image}}" alt="Product Image">
+            <h3 th:text="${product.name}">Product Name</h3>
+            <p th:text="${product.shortDescription}">Product description</p>
         </div>
     </div>
 </section>
@@ -110,18 +93,18 @@
 
     <div class="testimonial-grid">
         <div class="testimonial">
-            <p>“A terrific piece of praise”</p>
-            <span>Name</span>
+            <p>“A must-visit when in Dublin!”</p>
+            <span>Esti Djuwarta</span>
         </div>
 
         <div class="testimonial">
-            <p>“A fantastic bit of feedback”</p>
-            <span>Name</span>
+            <p>“A perfect cafe for a sweet treat!”</p>
+            <span>Adrianus Dwiputra</span>
         </div>
 
         <div class="testimonial">
-            <p>“A genuinely glowing review”</p>
-            <span>Name</span>
+            <p>“Lovely staff and even lovelier desserts”</p>
+            <span>Ivan Sorano</span>
         </div>
     </div>
 </section>
@@ -131,7 +114,7 @@
 
     <div class="location-grid">
         <div class="map">
-            <!-- google maps embed -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.11763688579!2d-6.26086302354699!3d53.34115037228778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e9c0c516a7b%3A0xc58a19dc4564ea13!2sDawson%20St%2C%20Dublin!5e0!3m2!1sen!2sie!4v1772742107437!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="address">
@@ -148,6 +131,7 @@
 
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

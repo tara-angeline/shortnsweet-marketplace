@@ -21,6 +21,7 @@ public class ProductController {
     @GetMapping("/shop")
     public String shop(Model model) {
         model.addAttribute("products", productRepository.findByActiveTrue());
+        model.addAttribute("activePage", "shop");
         return "shop";
     }
 
@@ -34,6 +35,8 @@ public class ProductController {
     @GetMapping("/productdetail")
     public String productDetail(@RequestParam Long id, Model model) {
         Product product = productService.getProductById(id);
+
+        model.addAttribute("products", productService.getFeaturedProducts());
 
         model.addAttribute("product", product);
         return "product_detail";

@@ -3,54 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title th:text="${product.id} == null ? 'Add Product' : 'Edit Product'"> - Short N' Sweet</title>
-  <link rel="stylesheet" th:href="@{/css/signup.css}">
+  <title th:text="${product.id} == null ? 'Add Product' : 'Edit Product'"> | Short N' Sweet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 
 <div th:replace="~{fragments/admin_header :: admin_header}"></div>
 
-<main class="signup-page">
-  <div class="signup-container">
-    <div class="signup-content">
+<main class="admin-product-page">
+  <div class="admin-product-container">
+    <div class="admin-product-content">
 
-      <h1 th:text="${product.id} == null ? 'Add New Product' : 'Edit Product'"></h1>
+      <h1 class="admin-product-title"
+          th:text="${product.id} == null ? 'Add New Product' : 'Edit Product'"></h1>
 
       <form
               th:action="${product.id} == null ? @{/admin/products} : @{'/admin/products/' + ${product.id}}"
               method="post"
-              class="signup-form"
+              class="admin-product-form"
       >
 
         <div th:if="${error}" class="error-message" th:text="${error}"></div>
         <div th:if="${param.created}" class="success-message">Product created successfully!</div>
-        <div th:if="${param.updated}" class="success-message">Product updated successfully!</div>
 
         <!-- Name -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="name">Product Name</label>
-          <div class="input-wrapper">
-            <span class="input-icon">🍰</span>
+          <div class="admin-input-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/cake-icon.svg}" alt="Cake" width="24" height="24">
             <input type="text" id="name" name="name" placeholder="Enter product name"
                    required th:value="${product.name}">
           </div>
         </div>
 
         <!-- Short Description -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="shortDescription">Short Description</label>
-          <div class="input-wrapper">
-            <span class="input-icon">📝</span>
+          <div class="admin-input-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/clip-icon.svg}" alt="ShortDesc" width="24" height="24">
             <input type="text" id="shortDescription" name="shortDescription"
                    placeholder="Enter short description" th:value="${product.shortDescription}">
           </div>
         </div>
 
         <!-- Long Description -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="longDescription">Long Description (HTML formatted)</label>
-          <div class="input-wrapper">
-            <span class="input-icon">📄</span>
+          <div class="admin-input-wrapper admin-textarea-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/order-icon.svg}" alt="LongDesc" width="24" height="24">
             <textarea id="longDescription" name="longDescription" rows="5"
                       placeholder="Enter full product description"
                       th:text="${product.longDescription}"></textarea>
@@ -58,40 +58,41 @@
         </div>
 
         <!-- Price -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="price">Price (€)</label>
-          <div class="input-wrapper">
-            <span class="input-icon">💶</span>
+          <div class="admin-input-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/price-icon.svg}" alt="Price" width="24" height="24">
             <input type="number" step="0.01" id="price" name="price"
                    placeholder="0.00" required th:value="${product.price}">
           </div>
         </div>
 
         <!-- Stock -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="stock">Stock</label>
-          <div class="input-wrapper">
-            <span class="input-icon">📦</span>
+          <div class="admin-input-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/box-icon.svg}" alt="Stock" width="24" height="24">
             <input type="number" id="stock" name="stock"
                    placeholder="0" required min="0" th:value="${product.stock}">
           </div>
         </div>
 
         <!-- Image -->
-        <div class="form-group">
+        <div class="admin-form-group">
           <label for="image">Image (formatted directory)</label>
-          <div class="input-wrapper">
-            <span class="input-icon">🖼️</span>
+          <div class="admin-input-wrapper">
+            <img class="admin-input-icon" th:src="@{/svg/image-icon.svg}" alt="Image" width="24" height="24">
             <input type="text" id="image" name="image"
                    placeholder="e.g. /product_img/ProductName_Name.png" th:value="${product.image}">
           </div>
         </div>
 
-        <button type="submit" class="register-btn"
+        <button type="submit"
+                class="admin-product-btn"
                 th:text="${product.id} == null ? 'Create Product' : 'Save Changes'"></button>
 
-        <div style="margin-top:12px;">
-          <a th:href="@{/admin/products}" style="text-decoration:none;">← Back to products</a>
+        <div class="admin-product-back">
+          <a th:href="@{/admin/products}" class="admin-product-back-link">← Back to products</a>
         </div>
 
       </form>
@@ -100,5 +101,7 @@
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
+
 </body>
 </html>

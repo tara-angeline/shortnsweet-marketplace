@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>View Products - Short N' Sweet</title>
+    <title>View All Products | Short N' Sweet</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -10,57 +10,82 @@
 <!-- header -->
 <div th:replace="~{fragments/admin_header :: admin_header}"></div>
 
-<section class="admin">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-        <h1>Products</h1>
-        <a class="btn" th:href="@{/admin/products/add}">
-            <button class="btn primary">+ Add Product</button>
+<section class="admin-products-page">
+
+    <div class="admin-products-header">
+        <h1 class="admin-products-title">Products</h1>
+
+        <a th:href="@{/admin/products/add}" class="back-link">
+            + Add Product
         </a>
     </div>
 
-<!--    <div th:if="${param.created}" class="success-message">Product created.</div>-->
-<!--    <div th:if="${param.updated}" class="success-message">Product updated.</div>-->
-<!--    <div th:if="${param.deleted}" class="success-message">Product deleted.</div>-->
+    <!--
+    <div th:if="${param.created}" class="success-message">Product created.</div>
+    <div th:if="${param.updated}" class="success-message">Product updated.</div>
+    <div th:if="${param.deleted}" class="success-message">Product deleted.</div>
+    -->
 
-    <table class="admin-table">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="p : ${products}">
-            <td><img th:src="@{${p.image}}" th:alt="${p.name}"></td>
-            <td th:text="${p.id}"></td>
-            <td th:text="${p.name}"></td>
-            <td th:text="${p.price}"></td>
-            <td th:text="${p.stock}"></td>
-            <td style="display:flex; gap:8px;">
-                <a class="btn" th:href="@{'/admin/products/' + ${p.id} + '/edit'}">
-                    <button class="btn primary">Edit</button>
-                </a>
+    <div class="admin-products-table-card">
 
-                <form th:if="${p.active}" th:action="@{'/admin/products/' + ${p.id} + '/hide'}" method="post">
-                    <button class="btn danger" type="submit">Hide</button>
-                </form>
+        <table class="admin-products-table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th class="admin-products-actions-header">Actions</th>
+            </tr>
+            </thead>
 
-                <form th:if="${!p.active}" th:action="@{'/admin/products/' + ${p.id} + '/unhide'}" method="post">
-                    <button class="btn primary" type="submit">Unhide</button>
-                </form>
+            <tbody>
+            <tr th:each="p : ${products}" class="admin-products-row">
 
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                <td class="admin-products-image">
+                    <img th:src="@{${p.image}}" th:alt="${p.name}">
+                </td>
+
+                <td th:text="${p.id}"></td>
+
+                <td class="admin-products-name" th:text="${p.name}"></td>
+
+                <td th:text="${p.price}"></td>
+
+                <td th:text="${p.stock}"></td>
+
+                <td class="admin-products-actions">
+
+                    <a th:href="@{'/admin/products/' + ${p.id} + '/edit'}">
+                        <button class="btn success" type="submit">Edit</button>
+                    </a>
+
+                    <form th:if="${p.active}"
+                          th:action="@{'/admin/products/' + ${p.id} + '/hide'}"
+                          method="post">
+                        <button class="btn danger" type="submit">Hide</button>
+                    </form>
+
+                    <form th:if="${!p.active}"
+                          th:action="@{'/admin/products/' + ${p.id} + '/unhide'}"
+                          method="post">
+                        <button class="btn primary" type="submit">Unhide</button>
+                    </form>
+
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 </section>
 
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

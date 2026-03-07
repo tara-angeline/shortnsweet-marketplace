@@ -2,10 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard - Short N' Sweet</title>
+    <title>Admin Dashboard | Short N' Sweet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -27,24 +25,24 @@
     </div>
 </section>
 
-<section class="admin">
+<section class="admin-page">
     <h2>Dashboard</h2>
 
     <div class="admin-action-grid">
         <a class="admin-action-card" th:href="@{/admin/products}">
-            <img th:src="@{/images/dark-chocolate.jpg}" alt="Manage Products">
+            <img th:src="@{/svg/box-icon.svg}" alt="Manage Products">
             <h3>Manage Products</h3>
             <p>Create, edit, or delete products.</p>
         </a>
 
         <a class="admin-action-card" th:href="@{/admin/orders}">
-            <img th:src="@{/images/dark-chocolate.jpg}" alt="Manage Orders">
+            <img th:src="@{/svg/order-icon.svg}" alt="Manage Orders">
             <h3>Manage Orders</h3>
             <p>View orders and update statuses.</p>
         </a>
 
         <a class="admin-action-card" th:href="@{/admin/register}">
-            <img th:src="@{/images/dark-chocolate.jpg}" alt="Register Admin">
+            <img th:src="@{/svg/add-user-icon.svg}" alt="Register Admin">
             <h3>Register Admin</h3>
             <p>Create new admin credentials.</p>
         </a>
@@ -54,6 +52,7 @@
 
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

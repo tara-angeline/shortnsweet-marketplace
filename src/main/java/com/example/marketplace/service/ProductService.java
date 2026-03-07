@@ -66,4 +66,9 @@ public class ProductService {
         product.setActive(true);
         productRepository.save(product);
     }
+
+    public List<Product> getFeaturedProducts() {
+        List<Product> activeProducts = productRepository.findByActiveTrue();
+        return activeProducts.subList(0, Math.min(4, activeProducts.size()));
+    }
 }

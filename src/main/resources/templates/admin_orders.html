@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>View Orders - Short N' Sweet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View All Orders | Short N' Sweet</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -10,11 +11,11 @@
 <!-- header -->
 <div th:replace="~{fragments/admin_header :: admin_header}"></div>
 
-<section class="admin">
+<section class="admin-order-page">
   <h1>All Orders</h1>
 
-<!--  <div th:if="${success}" class="success-message" th:text="${success}"></div>-->
-<!--  <div th:if="${error}" class="error-message" th:text="${error}"></div>-->
+<div th:if="${success}" class="success-message" th:text="${success}"></div>
+<div th:if="${error}" class="error-message" th:text="${error}"></div>
 
   <table class="admin-table">
     <thead>
@@ -48,6 +49,7 @@
 
 <!-- footer -->
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

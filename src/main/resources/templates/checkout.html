@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Checkout - Short N' Sweet</title>
+  <title>Checkout | Short N' Sweet</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}">
   <style></style>
 </head>
@@ -10,13 +10,13 @@
 
 <div th:replace="~{fragments/header :: header}"></div>
 
-<div class="container">
+<div class="checkout-page">
   <h1>Checkout</h1>
 
-  <div class="grid">
+  <div class="checkout-grid">
 
     <!-- LEFT: Order Summary -->
-    <div class="card">
+    <div class="order-summary">
       <h2>Order Summary</h2>
 
       <table>
@@ -47,45 +47,45 @@
     </div>
 
     <!-- RIGHT: Delivery + Payment -->
-    <div class="card">
+    <div class="order-details">
 
       <form th:action="@{/checkout/place}" method="post">
 
         <!-- DELIVERY DETAILS -->
         <h2>Delivery Details</h2>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Full Name</label>
           <input type="text" name="fullName" required>
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Email</label>
           <input type="email" name="email" required>
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Address Line 1</label>
           <input type="text" name="address1" required>
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Address Line 2</label>
           <input type="text" name="address2">
         </div>
 
         <div class="row">
-          <div class="field">
+          <div class="checkout-field">
             <label>City</label>
             <input type="text" name="city" required>
           </div>
-          <div class="field">
+          <div class="checkout-field">
             <label>Postal Code</label>
             <input type="text" name="postcode" required>
           </div>
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Country</label>
           <select name="country">
             <option>Ireland</option>
@@ -104,22 +104,22 @@
           This is a demo payment form. No real payment is processed.
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Name on Card</label>
           <input type="text" name="cardName" required>
         </div>
 
-        <div class="field">
+        <div class="checkout-field">
           <label>Card Number</label>
           <input type="text" name="cardNumber" maxlength="19" required>
         </div>
 
         <div class="row">
-          <div class="field">
+          <div class="checkout-field">
             <label>Expiry (MM/YY)</label>
             <input type="text" name="expiry" placeholder="12/30" required>
           </div>
-          <div class="field">
+          <div class="checkout-field">
             <label>CVV</label>
             <input type="text" name="cvv" maxlength="4" required>
           </div>
@@ -136,6 +136,7 @@
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

@@ -2,48 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<footer>
-  <div class="footer-grid">
+<footer th:fragment="footer" class="footer">
+  <div class="container footer-container">
 
-    <div>
-      <div>
-        <h4>Short N' Sweet - Tara Ava Angeline</h4>
-        <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span></p>
-      </div>
-
-      <div class="socials">
-        <a href="#">FB</a>
-        <a href="#">IN</a>
-        <a href="#">YT</a>
-        <a href="#">IG</a>
-      </div>
+    <div class="footer-left">
+      <h3>Short N' Sweet - Handcrafted cakes made with love.</h3>
+      <p>Tara Ava Angeline &copy; <span th:text="${#dates.year(#dates.createNow())}"></span> All Rights Reserved</p>
     </div>
 
-    <div>
-      <h4>Shop</h4>
-      <ul>
-        <li><a th:href="@{/shop}">Page</a></li>
-        <li><a th:href="@{/shop}">Page</a></li>
-        <li><a th:href="@{/shop}">Page</a></li>
-      </ul>
+    <div class="footer-links">
+      <a th:href="@{/}">Home</a>
+      <a th:href="@{/shop}">Shop</a>
+      <a th:href="@{/about}">About</a>
+      <a href="https://linktr.ee/tara_ava_angeline" target="_blank">Contact</a>
     </div>
 
-    <div>
-      <h4>About</h4>
-      <ul>
-        <li><a th:href="@{/about}">Page</a></li>
-        <li><a th:href="@{/about}">Page</a></li>
-        <li><a th:href="@{/about}">Page</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Contact us</h4>
-      <ul>
-        <li><a th:href="@{/contact}">Page</a></li>
-        <li><a th:href="@{/contact}">Page</a></li>
-        <li><a th:href="@{/contact}">Page</a></li>
-      </ul>
+    <div class="footer-social">
+      <a href="https://instagram.com">Instagram</a>
+      <a href="https://tiktok.com">TikTok</a>
+      <a href="https://facebook.com">Facebook</a>
     </div>
 
   </div>
