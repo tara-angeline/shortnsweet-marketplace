@@ -1,4 +1,4 @@
-const menuIcon = document.querySelector(".menu-icon");
+const menuIcon = document.querySelector(".bx-menu");
 const closeIcon = document.querySelector(".close-icon");
 const navLinks = document.querySelector(".nav-links");
 
@@ -12,13 +12,15 @@ if (menuIcon && closeIcon && navLinks) {
     });
 }
 
-function togglePassword() {
-    const passwordField = document.getElementById("password");
-    const toggleIcon = document.querySelector(".toggle-password");
+function togglePassword(icon) {
 
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
+    const password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+        icon.classList.replace("bx-show", "bx-hide");
     } else {
-        passwordField.type = "password";
-    }
+        password.type = "password";
+        icon.classList.replace("bx-hide", "bx-show");
+        }
 }
