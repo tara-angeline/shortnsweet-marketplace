@@ -31,7 +31,7 @@
         <div class="admin-form-group">
           <label for="name">Product Name</label>
           <div class="admin-input-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/cake-icon.svg}" alt="Cake" width="24" height="24">
+            <i class='bx input-icon bx-cake'></i>
             <input type="text" id="name" name="name" placeholder="Enter product name"
                    required th:value="${product.name}">
           </div>
@@ -41,7 +41,7 @@
         <div class="admin-form-group">
           <label for="shortDescription">Short Description</label>
           <div class="admin-input-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/clip-icon.svg}" alt="ShortDesc" width="24" height="24">
+            <i class='bx input-icon bx-note'></i>
             <input type="text" id="shortDescription" name="shortDescription"
                    placeholder="Enter short description" th:value="${product.shortDescription}">
           </div>
@@ -51,7 +51,7 @@
         <div class="admin-form-group">
           <label for="longDescription">Long Description (HTML formatted)</label>
           <div class="admin-input-wrapper admin-textarea-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/order-icon.svg}" alt="LongDesc" width="24" height="24">
+            <i class='bx input-icon bx-code-alt'></i>
             <textarea id="longDescription" name="longDescription" rows="5"
                       placeholder="Enter full product description"
                       th:text="${product.longDescription}"></textarea>
@@ -62,7 +62,7 @@
         <div class="admin-form-group">
           <label for="price">Price (€)</label>
           <div class="admin-input-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/price-icon.svg}" alt="Price" width="24" height="24">
+            <i class='bx input-icon bx-money'></i>
             <input type="number" step="0.01" id="price" name="price"
                    placeholder="0.00" required th:value="${product.price}">
           </div>
@@ -72,7 +72,7 @@
         <div class="admin-form-group">
           <label for="stock">Stock</label>
           <div class="admin-input-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/box-icon.svg}" alt="Stock" width="24" height="24">
+            <i class='bx input-icon bx-box'></i>
             <input type="number" id="stock" name="stock"
                    placeholder="0" required min="0" th:value="${product.stock}">
           </div>
@@ -82,7 +82,7 @@
         <div class="admin-form-group">
           <label for="image">Image (formatted directory)</label>
           <div class="admin-input-wrapper">
-            <img class="admin-input-icon" th:src="@{/svg/image-icon.svg}" alt="Image" width="24" height="24">
+            <i class='bx input-icon bx-image'></i>
             <input type="text" id="image" name="image"
                    placeholder="e.g. /product_img/ProductName_Name.png" th:value="${product.image}">
           </div>

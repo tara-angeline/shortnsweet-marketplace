@@ -1275,9 +1275,13 @@ nav .navbar {
 .qty-btn {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 23px;
     cursor: pointer;
     padding: 5px;
+}
+
+.qty-btn i {
+    object-fit: contain;
 }
 
 .qty-btn:disabled {
@@ -1301,18 +1305,23 @@ nav .navbar {
     border: none;
     cursor: pointer;
     padding: 5px;
+    font-size: 20px
 }
 
-.remove-btn img {
-    width: 20px;
-    height: 20px;
+.remove-btn i {
     object-fit: contain;
     color: #888;
 }
 
 /* Hover Effect for Delete Button */
-.remove-btn:hover {
-    transform: scale(1.1); /* Slightly enlarge button on hover */
+.remove-btn:hover, .qty-btn:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.remove-btn i:hover {
+    color: #8b0000;
+    transition: color 0.3s ease;
 }
 
 /* Order Summary Section */
