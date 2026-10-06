@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About | Short N' Sweet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<!-- header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<section class="about-hero">
+
+    <div class="about-container">
+
+        <div class="about-text">
+            <h1>About</h1>
+
+            <p class="about-subheading">
+                Bringing indulgent dessert boxes to Dublin, one sweet layer at a time.
+            </p>
+
+            <p>
+                <strong>Short N' Sweet</strong> started with a simple idea - desserts
+                should feel exciting, indulgent, and easy to enjoy anywhere.
+                Instead of traditional slices of cake, we wanted to create something
+                playful: beautifully layered desserts served in a box.
+            </p>
+
+            <p>
+                Each dessert box is carefully assembled with fresh cakes, silky creams,
+                and bold flavours inspired by both classic European pastries and
+                vibrant Southeast Asian desserts.
+            </p>
+
+            <p>
+                Whether you're celebrating something special or simply craving a
+                sweet escape, our dessert boxes are designed to bring a little
+                joy to your day.
+            </p>
+        </div>
+
+
+        <div class="about-image">
+            <img th:src="@{/our-story-img.png}" alt="Dessert box preparation">
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <div class="contact-left">
+
+            <h2>Contact us</h2>
+
+            <form>
+
+                <div class="contact-form-row">
+                    <div class="contact-form-group">
+                        <label>First name</label>
+                        <input type="text" placeholder="Jane">
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label>Last name</label>
+                        <input type="text" placeholder="Smitherton">
+                    </div>
+                </div>
+
+
+                <div class="contact-form-group">
+                    <label>Email address</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+
+
+                <div class="contact-form-group">
+                    <label>Your message</label>
+                    <textarea placeholder="Enter your question or message"></textarea>
+                </div>
+
+                <button class="btn primary">Submit</button>
+
+            </form>
+
+        </div>
+
+
+        <div class="contact-right">
+
+            <img th:src="@{/contact-us-img.png}" alt="Contact Short N Sweet">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

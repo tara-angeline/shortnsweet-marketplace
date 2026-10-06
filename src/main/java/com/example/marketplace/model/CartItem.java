@@ -1,7 +1,5 @@
 package com.example.marketplace.model;
 
-import java.math.BigDecimal;
-
 public class CartItem {
     private Long productId;
 

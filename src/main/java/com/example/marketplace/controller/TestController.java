@@ -31,8 +31,6 @@ public class TestController {
                 "Dark Chocolate",
                 "Classic dark chocolate cake",
                 """
-                <h2>Midnight Velvet: The Dark Chocolate Indulgence Box</h2>
-
                 <p>
                   Experience the ultimate celebration of chocolate in its richest, most luxurious form.
                   Our <strong>Midnight Velvet Dark Chocolate Dessert Box</strong> is crafted for those who believe
@@ -54,10 +52,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Core Flavors</td><td>Intense Dark Chocolate, Cocoa, Subtle Caramel Notes</td></tr>
-                    <tr><td>Presentation</td><td>Elegant 10cm x 10cm clear-view dessert container</td></tr>
+                    <tr><td>Flavour Profile</td><td>Intense Dark Chocolate, Cocoa, Subtle Caramel Notes, Buttery Crumbs</td></tr>
                     <tr><td>Sweetness Level</td><td>Balanced / Semi-Sweet (3/5)</td></tr>
-                    <tr><td>Dietary Info</td><td>Contains dairy and gluten; best kept refrigerated.</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -75,7 +72,8 @@ public class TestController {
                 10.99,
                 50,
                 "/product_img/DarkChocolate_Main.png",
-                true
+                true,
+                "most loved,classic,dark chocolate,caramel,chocolate,cocoa,rich,dessert box,chocolate cake, mouse"
         ));
 
         // 2) Nutella / Ferrero
@@ -83,8 +81,6 @@ public class TestController {
                 "Nutella",
                 "Hazelnut chocolate indulgence",
                 """
-                <h2>Hazelnut Heaven: The Ultimate Nutella Ferrero Dessert Box</h2>
-
                 <p>
                   Indulge in the world’s most beloved chocolate-hazelnut spread with our
                   <strong>Hazelnut Heaven Nutella Dessert Box</strong>. Inspired by the iconic
@@ -108,10 +104,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Roasted Hazelnut, Milk Chocolate, Dark Cocoa</td></tr>
-                    <tr><td>Core Ingredients</td><td>Authentic Nutella, Toasted Hazelnuts, Premium Cocoa</td></tr>
+                    <tr><td>Flavour Profile</td><td>Roasted Hazelnut, Milk Chocolate, Toasted Hazelnuts</td></tr>
                     <tr><td>Sweetness Level</td><td>Rich &amp; Indulgent (4.5/5)</td></tr>
-                    <tr><td>Serving Size</td><td>500ml Box (Perfect for sharing or a generous solo treat)</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -129,7 +124,8 @@ public class TestController {
                 11.49,
                 40,
                 "/product_img/Nutella_Main.png",
-                true
+                true,
+                "most loved,classic,nutella,hazelnut,ferrero,chocolate,hazelnut chocolate,dessert box"
         ));
 
         // 3) Tiramisu
@@ -137,8 +133,6 @@ public class TestController {
                 "Tiramisu",
                 "Coffee-infused Italian classic",
                 """
-                <h2>Midnight Espresso: The Authentic Italian Tiramisu Box</h2>
-
                 <p>
                   Experience the timeless elegance of Italy with our
                   <strong>Midnight Espresso Tiramisu Dessert Box</strong>. Inspired by the
@@ -171,10 +165,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Bold Espresso, Creamy Mascarpone, Dark Cocoa</td></tr>
-                    <tr><td>Core Ingredients</td><td>Italian Ladyfingers, Real Espresso, Mascarpone Cheese</td></tr>
+                    <tr><td>Flavors Profile</td><td>Italian Ladyfingers, Bold Espresso, Creamy Mascarpone, Dark Cocoa</td></tr>
                     <tr><td>Sweetness Level</td><td>Refined / Bittersweet Balance (2.5/5)</td></tr>
-                    <tr><td>Serving Suggestion</td><td>Best served chilled; pairs perfectly with hot espresso or sweet Vin Santo</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -192,7 +185,8 @@ public class TestController {
                 12.49,
                 35,
                 "/product_img/Tiramisu_Main.png",
-                true
+                true,
+                "most loved, classic,tiramisu,coffee,espresso,italian,dessert box,mascarpone"
         ));
 
         // 4) Matcha
@@ -200,8 +194,6 @@ public class TestController {
                 "Matcha",
                 "Earthy Japanese green tea",
                 """
-                <h2>Zen Garden: The Ceremonial Matcha Tiramisu Box</h2>
-
                 <p>
                   Find your moment of calm with our <strong>Zen Garden Matcha Dessert Box</strong>.
                   Designed for true tea lovers, this dessert highlights the refined complexity
@@ -223,10 +215,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Main Flavors</td><td>Umami Matcha, Creamy Mascarpone, Subtle Vanilla</td></tr>
-                    <tr><td>Texture</td><td>Melt-in-your-mouth Cream, Moist Sponge, Dense Truffle</td></tr>
+                    <tr><td>Flavour Profile</td><td>Earthy Matcha, Creamy Mascarpone, Subtle Vanilla</td></tr>
                     <tr><td>Sweetness Level</td><td>Low to Moderate (2/5)</td></tr>
-                    <tr><td>Best Paired With</td><td>A warm cup of Sencha or a cold-brew Oolong tea</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -244,7 +235,8 @@ public class TestController {
                 11.99,
                 30,
                 "/product_img/Matcha_Main.png",
-                true
+                true,
+                "matcha,green tea,japanese,tea dessert,matcha cake,dessert box"
         ));
 
         // 5) Red Velvet
@@ -252,8 +244,6 @@ public class TestController {
                 "Red Velvet",
                 "Smooth cocoa with cream cheese",
                 """
-                <h2>Crimson Romance: The Signature Red Velvet Dessert Box</h2>
-
                 <p>
                   Indulge in the timeless elegance of our
                   <strong>Crimson Romance Red Velvet Dessert Box</strong>. Inspired by the
@@ -278,10 +268,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Subtle Cocoa, Tangy Cream Cheese, Buttermilk</td></tr>
-                    <tr><td>Texture</td><td>Ultra-Moist, Velvety, and Airy</td></tr>
+                    <tr><td>Flavour Profile</td><td>Subtle Cocoa, Tangy Cream Cheese, Buttermilk</td></tr>
                     <tr><td>Sweetness Level</td><td>Balanced and Refined (3/5)</td></tr>
-                    <tr><td>Serving Size</td><td>500ml Box (Ideal for sharing or a decadent personal treat)</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -300,7 +289,8 @@ public class TestController {
                 11.99,
                 40,
                 "/product_img/RedVelvet_Main.png",
-                true
+                true,
+                "red velvet,cream cheese,cocoa,classic cake,dessert box"
         ));
 
         // 6) Nastar
@@ -308,8 +298,6 @@ public class TestController {
                 "Nastar",
                 "Indonesian pineapple delight",
                 """
-                <h2>Golden Pineapple Heritage: The Signature Nastar Dessert Box</h2>
-
                 <p>
                   Celebrate the warmth of tradition with our
                   <strong>Golden Pineapple Heritage Nastar Dessert Box</strong>.
@@ -333,10 +321,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Flavor Profile</td><td>Tangy Pineapple, Rich Butter, Sweet Vanilla</td></tr>
-                    <tr><td>Core Ingredients</td><td>House-made Pineapple Compote, Premium Butter, Fresh Dairy Cream</td></tr>
+                    <tr><td>Flavour Profile</td><td>Tangy Pineapple, Rich Butter, Sweet Vanilla</td></tr>
                     <tr><td>Sweetness Level</td><td>Comfortably Sweet (3.5/5)</td></tr>
-                    <tr><td>Serving Suggestion</td><td>Pairs beautifully with hot Earl Grey or traditional jasmine tea</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -355,7 +342,8 @@ public class TestController {
                 10.49,
                 30,
                 "/product_img/Nastar_Main.png",
-                true
+                true,
+                "southeast asian,nastar,pineapple,indonesian,fruit,pineapple tart,asian dessert,dessert box"
         ));
 
         // 7) Klepon
@@ -363,8 +351,6 @@ public class TestController {
                 "Klepon",
                 "Palm sugar & coconut",
                 """
-                <h2>Emerald Bliss: The Klepon Fusion Dessert Box</h2>
-
                 <p>
                   Experience the soul of Indonesian tradition reimagined in a contemporary masterpiece.
                   Our <strong>Emerald Bliss Klepon Dessert Box</strong> takes the beloved flavors of the classic <em>jajan pasar</em>
@@ -387,10 +373,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Core Flavors</td><td>Pandan, Fresh Coconut, Liquid Palm Sugar</td></tr>
-                    <tr><td>Presentation</td><td>Elegant 10cm x 10cm clear-view safety container</td></tr>
+                    <tr><td>Flavour Profile</td><td>Pandan, Creamy Coconut, Liquid Palm Sugar</td></tr>
                     <tr><td>Sweetness Level</td><td>Classic Sweet (4/5)</td></tr>
-                    <tr><td>Dietary Info</td><td>Contains dairy and gluten; best consumed fresh.</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -406,7 +391,8 @@ public class TestController {
                 10.99,
                 25,
                 "/product_img/Klepon_Main.png",
-                true
+                true,
+                "southeast asian,klepon,pandan,palm sugar,coconut,indonesian,asian dessert"
         ));
 
         // 8) Mango Float
@@ -414,8 +400,6 @@ public class TestController {
                 "Mango Float",
                 "Filipino-style mango dessert",
                 """
-                <h2>Sun-Kissed Golden Mango Float: A Tropical Escape in a Box</h2>
-
                 <p>
                   Transport your taste buds to a tropical paradise with our
                   <strong>Golden Mango Float Dessert Box</strong>. This refreshing dessert captures
@@ -439,10 +423,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Main Flavors</td><td>Ripe Tropical Mango, Sweet Cream, Honey Graham</td></tr>
-                    <tr><td>Texture</td><td>Creamy, Soft-Set, and Refreshing</td></tr>
+                    <tr><td>Flavour Profile</td><td>Ripe Tropical Mango, Sweet Cream, Honey Graham</td></tr>
                     <tr><td>Sweetness Level</td><td>Naturally Sweet &amp; Refreshing (3.5/5)</td></tr>
-                    <tr><td>Serving Suggestion</td><td>Best served straight from the fridge or slightly frozen for an ice-cream cake feel</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -460,7 +443,8 @@ public class TestController {
                 11.49,
                 35,
                 "/product_img/MangoFloat_Main.png",
-                true
+                true,
+                "southeast asian,mango,mango float,filipino,tropical fruit,cream dessert"
         ));
 
         // 9) Ube
@@ -468,8 +452,6 @@ public class TestController {
                 "Ube",
                 "Purple yam sweetness",
                 """
-                <h2>Violet Velvet: The Signature Ube Coconut Dessert Box</h2>
-
                 <p>
                   Experience the vibrant flavors of the Philippines with our
                   <strong>Violet Velvet Ube Coconut Dessert Box</strong>. Inspired by the beloved
@@ -494,9 +476,8 @@ public class TestController {
                   </thead>
                   <tbody>
                     <tr><td>Main Flavors</td><td>Earthy Ube (Purple Yam), Creamy Coconut, Natural Vanilla</td></tr>
-                    <tr><td>Texture</td><td>Silky, Moist, and Lightly Flaky</td></tr>
                     <tr><td>Sweetness Level</td><td>Subtle &amp; Sophisticated (2.5/5)</td></tr>
-                    <tr><td>Serving Size</td><td>500ml Box (Perfect for sharing or a luxurious solo treat)</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -514,7 +495,8 @@ public class TestController {
                 11.99,
                 30,
                 "/product_img/Ube_Main.png",
-                true
+                true,
+                "southeast asian,ube,purple yam,filipino,tropical,coconut,dessert box"
         ));
 
         // 10) Oolong Tea
@@ -522,8 +504,6 @@ public class TestController {
                 "Oolong Tea",
                 "Fragrant tea-infused cake",
                 """
-                <h2>Imperial Steep: The Signature Oolong Tea Dessert Box</h2>
-
                 <p>
                   Discover the quiet elegance of fine tea craftsmanship with our
                   <strong>Imperial Steep Oolong Tea Dessert Box</strong>. Designed for the
@@ -547,10 +527,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Flavor Profile</td><td>Floral, Toasted Nut, Subtle Honey, Roasted Malt</td></tr>
-                    <tr><td>Core Ingredients</td><td>Premium Whole-Leaf Oolong, Fresh Cream, Malted Biscuits</td></tr>
+                    <tr><td>Flavour Profile</td><td>Floral, Creamy, Toasted Nut, Subtle Honey, Roasted Malt</td></tr>
                     <tr><td>Sweetness Level</td><td>Refined / Low-Moderate (2/5)</td></tr>
-                    <tr><td>Best Enjoyed</td><td>Chilled, alongside a warm cup of light tea or sparkling water</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -568,7 +547,8 @@ public class TestController {
                 11.49,
                 25,
                 "/product_img/OolongTea_Main.png",
-                true
+                true,
+                "oolong,tea dessert,chinese tea,floral tea,dessert box"
         ));
 
         // 11) Lotus Biscoff
@@ -576,8 +556,6 @@ public class TestController {
                 "Lotus Biscoff",
                 "Caramelised biscuit favourite",
                 """
-                <h2>Caramelized Harmony: The Signature Lotus Biscoff Dessert Box</h2>
-
                 <p>
                   Indulge in the flavor that has taken the world by storm with our
                   <strong>Caramelized Harmony Lotus Biscoff Dessert Box</strong>. This decadent
@@ -601,10 +579,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Caramel, Cinnamon, Toasted Ginger, Brown Sugar</td></tr>
-                    <tr><td>Core Ingredients</td><td>Authentic Lotus Biscoff Biscuits &amp; Spread, Premium Cream</td></tr>
+                    <tr><td>Flavour Profile</td><td>Caramel and Cinnamon, Cookie Butter, Creamy, Brown Sugar</td></tr>
                     <tr><td>Sweetness Level</td><td>Indulgently Sweet (4.5/5)</td></tr>
-                    <tr><td>Serving Suggestion</td><td>Enjoy chilled. Pairs beautifully with unsweetened coffee or tea</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -622,7 +599,8 @@ public class TestController {
                 12.49,
                 40,
                 "/product_img/LotusBiscoff_Main.png",
-                true
+                true,
+                "lotus biscoff,biscoff,cookie butter,caramel biscuit,dessert box"
         ));
 
         // 12) Oreo
@@ -630,8 +608,6 @@ public class TestController {
                 "Oreo",
                 "Cookies & cream classic",
                 """
-                <h2>Midnight Cookies &amp; Cream: The Ultimate Oreo Dream Box</h2>
-
                 <p>
                   Experience the perfect harmony of crunch and cream with our
                   <strong>Midnight Cookies &amp; Cream Oreo Dessert Box</strong>. Inspired by
@@ -656,10 +632,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Dark Cocoa, Sweet Vanilla Cream, Classic Oreo</td></tr>
-                    <tr><td>Presentation</td><td>Signature 500ml clear-view dessert box</td></tr>
+                    <tr><td>Flavour Profile</td><td>Dark Cocoa, Sweet Vanilla Cream, Classic Oreo</td></tr>
                     <tr><td>Sweetness Level</td><td>Comfortably Indulgent (4/5)</td></tr>
-                    <tr><td>Best Served</td><td>Chilled directly from the refrigerator</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -678,7 +653,8 @@ public class TestController {
                 10.99,
                 45,
                 "/product_img/Oreo_Main.png",
-                true
+                true,
+                "most loved,oreo,cookies and cream,biscuit,chocolate cookie,cream dessert"
         ));
 
         // 13) Carrot Cake
@@ -686,8 +662,6 @@ public class TestController {
                 "Carrot Cake",
                 "Spiced & comforting",
                 """
-                <h2>Golden Harvest: The Ultimate Spiced Carrot Dessert Box</h2>
-
                 <p>
                   Discover the perfect balance of rustic comfort and modern luxury with our
                   <strong>Golden Harvest Carrot Dessert Box</strong>. Inspired by the beloved
@@ -710,10 +684,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Warm Cinnamon, Toasted Walnut, Tangy Cream Cheese</td></tr>
-                    <tr><td>Texture</td><td>Moist, Nutty, and Velvety</td></tr>
+                    <tr><td>Flavour Profile</td><td>Warm Cinnamon, Toasted Walnut, Tangy Cream Cheese</td></tr>
                     <tr><td>Sweetness Level</td><td>Perfectly Balanced (3/5)</td></tr>
-                    <tr><td>Storage</td><td>Best kept chilled; allow to sit at room temperature for 10 minutes before serving for maximum fluffiness</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -731,7 +704,8 @@ public class TestController {
                 11.49,
                 30,
                 "/product_img/CarrotCake_Main.png",
-                true
+                true,
+                "carrot cake,spiced cake,cinnamon,walnut,cream cheese,dessert"
         ));
 
         // 14) Strawberry Shortcake
@@ -739,8 +713,6 @@ public class TestController {
                 "Strawberry Shortcake",
                 "Light and fruity",
                 """
-                <h2>Sweet Serenity: The Signature Strawberry Shortcake Dessert Box</h2>
-
                 <p>
                   Escape into a world of light, airy indulgence with our
                   <strong>Sweet Serenity Strawberry Shortcake Dessert Box</strong>. Inspired by
@@ -770,10 +742,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Primary Flavors</td><td>Fresh Strawberry, Madagascar Vanilla, Sweet Dairy</td></tr>
-                    <tr><td>Texture</td><td>Airy, Juicy, and Silky</td></tr>
+                    <tr><td>Flavour Profile</td><td>Fresh Strawberry, Madagascar Vanilla, Sweet Dairy</td></tr>
                     <tr><td>Sweetness Level</td><td>Refreshingly Light (2.5/5)</td></tr>
-                    <tr><td>Serving Size</td><td>500ml Box (Perfect for sharing or enjoying solo)</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -791,7 +762,8 @@ public class TestController {
                 11.99,
                 35,
                 "/product_img/StrawberryShortcake_Main.png",
-                true
+                true,
+                "strawberry,strawberry shortcake,berry dessert,fruit cake,summer dessert"
         ));
 
         // 15) Black Forest
@@ -799,8 +771,6 @@ public class TestController {
                 "Black Forest",
                 "Chocolate & cherry classic",
                 """
-                <h2>Enchanted Forest: The Signature Black Forest Dessert Box</h2>
-
                 <p>
                   Step into a world of timeless indulgence with our
                   <strong>Enchanted Forest Black Forest Dessert Box</strong>. This luxurious dessert
@@ -826,10 +796,9 @@ public class TestController {
                     <tr><th>Feature</th><th>Description</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>Key Ingredients</td><td>Dutch Cocoa, Morello Cherries, Fresh Dairy Cream</td></tr>
-                    <tr><td>Texture</td><td>Airy, Moist, and Silky</td></tr>
+                    <tr><td>Flavour Profile</td><td>Dutch Cocoa, Morello Cherries, Fresh Dairy Cream</td></tr>
                     <tr><td>Sweetness Level</td><td>Sophisticated / Bittersweet Balance (3/5)</td></tr>
-                    <tr><td>Serving Size</td><td>500ml Box (Ideal for sharing between 2, or 1 deep indulgence)</td></tr>
+                    <tr><td>Dietary Info</td><td>Contains dairy and gluten - best kept refrigerated.</td></tr>
                   </tbody>
                 </table>
 
@@ -847,11 +816,12 @@ public class TestController {
                 12.99,
                 30,
                 "/product_img/BlackForrest_Main.png",
-                true
+                true,
+                "classic,black forest,chocolate cherry,cream,fruit,german cake,cherry dessert"
         ));
 
-        userRepository.save(new User("admin@dessertbox.ie", "12345678", Role.ADMIN, "Tara", "Angeline"));
-        userRepository.save(new User("test@example.com", "12345678", Role.CUSTOMER, "Jane", "Doe"));
+        userRepository.save(new User("admin@shortnsweet.ie", "qwertyuiop", Role.ADMIN, "Tara", "Angeline"));
+        userRepository.save(new User("test@example.com", "qwertyuiop", Role.CUSTOMER, "Jane", "Doe"));
 
         return "redirect:/";
     }

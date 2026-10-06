@@ -24,12 +24,11 @@
 
         <div class="cart-content">
 
-            <!-- Cart Items Section -->
             <section class="cart-items">
 
-                <div th:if="${#lists.isEmpty(cartItems)}">
-                    <p>Your cart is empty.</p>
-                    <a th:href="@{/shop}">Back to shop</a>
+                <div th:if="${#lists.isEmpty(cartItems)}" class="no-items">
+                    <p>Your cart is empty, let's change that :)</p>
+                    <a th:href="@{/shop}" class="btn primary">Start shopping</a>
                 </div>
 
                 <div th:each="item : ${cartItems}" class="cart-item">
@@ -47,8 +46,7 @@
 
                     <div class="item-action">
                         <div class="item-quantity">
-                            <!-- remove quantity -->
-                            <form th:action="@{/cart/update}" method="post" style="display:inline;">
+                            <form th:action="@{/cart/update}" method="post">
                                 <input type="hidden" name="productId" th:value="${item.productId}">
                                 <input type="hidden" name="quantity" th:value="${item.quantity - 1}">
                                 <button class="qty-btn" type="submit" th:disabled="${item.quantity <= 1}">
@@ -58,7 +56,6 @@
 
                             <input type="number" th:value="${item.quantity}" min="1" readonly>
 
-                            <!-- add quantity -->
                             <form th:action="@{/cart/update}" method="post" style="display:inline;">
                                 <input type="hidden" name="productId" th:value="${item.productId}">
                                 <input type="hidden" name="quantity" th:value="${item.quantity + 1}">
@@ -80,7 +77,6 @@
                 </div>
             </section>
 
-            <!-- Order Summary Section -->
             <aside class="order-summary" th:if="${!#lists.isEmpty(cartItems)}">
                 <div class="summary-content">
                     <div class="summary-row">

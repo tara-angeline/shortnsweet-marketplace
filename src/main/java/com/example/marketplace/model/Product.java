@@ -30,9 +30,13 @@ public class Product {
     @Column(nullable = false)
     private boolean active = true;
 
+    @Column(nullable = false, length = 1000)
+    private String tags;
+
     public Product() {}
 
-    public Product(String name, String shortDescription, String longDescription, double price, int stock, String image, boolean active) {
+    public Product(String name, String shortDescription, String longDescription, double price, int stock,
+                   String image, boolean active, String tags) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -40,6 +44,7 @@ public class Product {
         this.stock = stock;
         this.image = image;
         this.active = active;
+        this.tags = tags;
     }
 
     public Long getId() {
@@ -104,5 +109,13 @@ public class Product {
 
     public void setActive(boolean newActive) {
         active = newActive;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }

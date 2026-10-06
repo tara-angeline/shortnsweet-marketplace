@@ -16,12 +16,10 @@
 <main class="product-detail">
   <div class="product-detail-container">
 
-    <!-- Sticky Product Image -->
     <div class="product-image">
       <img th:src="@{${product.image}}" th:alt="${product.name}">
     </div>
 
-    <!-- Product Info Section -->
     <div class="product-info">
       <h1 th:text="${product.name}">Product Name</h1>
 

@@ -13,22 +13,17 @@
 <!-- header -->
 <div th:replace="~{fragments/admin_header :: admin_header}"></div>
 
-<!-- Main Content -->
 <main class="admin-signup-page">
-  <div class="signup-container">
-    <div class="signup-content">
+  <div class="admin-signup-container">
+    <div class="admin-signup-content">
       <h1>Create New Admin</h1>
       <p class="admin-disclaimer">New admin credentials can only be created by an existing admin.</p>
 
-      <!-- Sign Up Form -->
       <form th:action="@{/admin/register}" method="post" class="signup-form">
-        <!-- Error Message -->
         <div th:if="${error}" class="error-message" th:text="${error}"></div>
 
-        <!-- Success Message -->
         <div th:if="${param.adminCreated}" class="success-message">Admin account created successfully!</div>
 
-        <!-- First Name Field -->
         <div class="form-group">
           <label for="firstname">First Name</label>
           <div class="input-wrapper">
@@ -43,7 +38,6 @@
           </div>
         </div>
 
-        <!-- Last Name Field -->
         <div class="form-group">
           <label for="lastname">Last Name</label>
           <div class="input-wrapper">
@@ -58,7 +52,6 @@
           </div>
         </div>
 
-        <!-- Email Field -->
         <div class="form-group">
           <label for="email">Email</label>
           <div class="input-wrapper">
@@ -73,7 +66,6 @@
           </div>
         </div>
 
-        <!-- Password Field -->
         <div class="form-group">
           <label for="password">Password</label>
           <div class="input-wrapper">
@@ -90,7 +82,6 @@
           <small class="password-hint">Password must be at least 8 characters</small>
         </div>
 
-        <!-- Confirm Password Field -->
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
           <div class="input-wrapper">
@@ -102,7 +93,7 @@
                     placeholder="Confirm Password"
                     required
                     minlength="8">
-            <i class='bx bx-show toggle-password' onclick="togglePassword(this)"></i>
+            <i class='bx bx-show toggle-password' onclick="toggleConfirmPassword(this)"></i>
           </div>
         </div>
 

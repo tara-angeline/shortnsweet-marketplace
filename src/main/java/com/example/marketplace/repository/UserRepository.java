@@ -1,4 +1,5 @@
 package com.example.marketplace.repository;
+
 import com.example.marketplace.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

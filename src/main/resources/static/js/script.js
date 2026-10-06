@@ -13,8 +13,19 @@ if (menuIcon && closeIcon && navLinks) {
 }
 
 function togglePassword(icon) {
-
     const password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+        icon.classList.replace("bx-show", "bx-hide");
+    } else {
+        password.type = "password";
+        icon.classList.replace("bx-hide", "bx-show");
+        }
+}
+
+function toggleConfirmPassword(icon) {
+    const password = document.getElementById("confirmPassword");
 
     if (password.type === "password") {
         password.type = "text";

@@ -21,7 +21,7 @@ public class ProductService {
             return productRepository.findAll();
         }
 
-        return productRepository.findByNameContainingIgnoreCaseAndActiveTrue(keyword);
+        return productRepository.findByTagsContainingIgnoreCaseAndActiveTrue(keyword);
     }
 
     public Product getProductById(Long id) {
@@ -51,6 +51,7 @@ public class ProductService {
         existing.setName(addedProduct.getName());
         existing.setShortDescription(addedProduct.getShortDescription());
         existing.setLongDescription(addedProduct.getLongDescription());
+        existing.setTags(addedProduct.getTags());
         existing.setPrice(addedProduct.getPrice());
         existing.setStock(addedProduct.getStock());
         existing.setImage(addedProduct.getImage());
@@ -68,7 +69,12 @@ public class ProductService {
     }
 
     public List<Product> getFeaturedProducts() {
-        List<Product> activeProducts = productRepository.findByActiveTrue();
+        List<Product> activeProducts = productRepository.findByTagsContainingIgnoreCaseAndActiveTrue("most loved");
+        return activeProducts.subList(0, Math.min(4, activeProducts.size()));
+    }
+
+    public List<Product> getSEAProducts() {
+        List<Product> activeProducts = productRepository.findByTagsContainingIgnoreCaseAndActiveTrue("southeast asian");
         return activeProducts.subList(0, Math.min(4, activeProducts.size()));
     }
 }

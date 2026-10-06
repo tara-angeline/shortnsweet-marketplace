@@ -16,8 +16,8 @@
     <div class="hero-content">
         <h1>First Ever Dessertbox in Dublin</h1>
         <p>
-            Subheading that sets up context, shares more info about the website,
-            or generally gets people psyched to keep exploring.
+            Discover Dublin’s newest dessert obsession - beautifully layered cakes,
+            creamy fillings, and sweet delights in every box.
         </p>
         <a th:href="@{/shop}" class="btn">Shop Now</a>
     </div>
@@ -27,7 +27,7 @@
     <h2>Dublin’s Most Loved</h2>
 
     <div class="product-grid">
-        <div th:each="product : ${products}" class="product-card"
+        <div th:each="product : ${featproducts}" class="product-card"
              th:onclick="|window.location='@{/productdetail(id=${product.id})}'|">
             <img th:src="@{${product.image}}" alt="Product Image">
             <h3 th:text="${product.name}">Product Name</h3>
@@ -40,28 +40,11 @@
     <div class="text-content">
         <h2>Southeast Asian Flavours!</h2>
 
-        <div class="flavour">
-            <h4>Klepon</h4>
-            <p>Body text for whatever you'd like to expand on the main point.</p>
+        <div th:each="product : ${seaproducts}" class="flavour">
+            <h4 th:text="${product.name}">Product Name</h4>
+            <p th:text="${product.shortDescription}">Product description</p>
         </div>
-
-        <div class="flavour">
-            <h4>Mango Float</h4>
-            <p>
-                Body text for whatever you'd like to say.
-                Add main takeaway points, quotes, anecdotes.
-            </p>
-        </div>
-
-        <div class="flavour">
-            <h4>Ube</h4>
-            <p>
-                Body text for whatever you'd like to add more to the main point.
-                It provides details, explanations, and context.
-            </p>
-        </div>
-
-        <a th:href="@{/shop}" class="btn">Explore Now!</a>
+        <a th:href="@{/shop/search?q=southeast+asian}" class="btn">Explore Now!</a>
     </div>
 
     <div class="image-content">
@@ -74,17 +57,17 @@
 
     <div class="info-grid">
         <div class="info-card">
-            <img th:src="@{/images/our-story.jpg}" alt="Our story">
+            <img th:src="@{/our-story-img.png}" alt="Our story">
             <h3>Our story</h3>
-            <p>Body text for whatever you'd like to add more to the subheading.</p>
-            <a th:href="@{/about}">Read more</a>
+            <p>Find out more about our humble beginnings.</p>
+            <a th:href="@{/about}" class="btn">Read more</a>
         </div>
 
         <div class="info-card">
-            <img th:src="@{/images/contact.jpg}" alt="Contact us">
+            <img th:src="@{/contact-us-img.png}" alt="Contact us">
             <h3>Contact us</h3>
-            <p>Body text for whatever you'd like to expand on the main point.</p>
-            <a th:href="@{/contact}">Get in touch</a>
+            <p>Need some delicious goodness for your event?</p>
+            <a th:href="@{/about#contact}" class="btn">Get in touch</a>
         </div>
     </div>
 </section>

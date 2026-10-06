@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title th:text="${product.id} == null ? 'Add Product' : 'Edit Product'"> | Short N' Sweet</title>
+  <title th:text="${product.id} == null ? 'Add Product | Short N` Sweet' : 'Edit Product | Short N` Sweet'"> | Short N' Sweet</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -27,7 +27,6 @@
         <div th:if="${error}" class="error-message" th:text="${error}"></div>
         <div th:if="${param.created}" class="success-message">Product created successfully!</div>
 
-        <!-- Name -->
         <div class="admin-form-group">
           <label for="name">Product Name</label>
           <div class="admin-input-wrapper">
@@ -37,7 +36,6 @@
           </div>
         </div>
 
-        <!-- Short Description -->
         <div class="admin-form-group">
           <label for="shortDescription">Short Description</label>
           <div class="admin-input-wrapper">
@@ -47,7 +45,6 @@
           </div>
         </div>
 
-        <!-- Long Description -->
         <div class="admin-form-group">
           <label for="longDescription">Long Description (HTML formatted)</label>
           <div class="admin-input-wrapper admin-textarea-wrapper">
@@ -58,7 +55,15 @@
           </div>
         </div>
 
-        <!-- Price -->
+        <div class="admin-form-group">
+          <label for="tags">Tags (keyword search)</label>
+          <div class="admin-input-wrapper">
+            <i class='bx input-icon bx-tag'></i>
+            <input type="text" id="tags" name="tags"
+            placeholder="Enter product tags" th:value="${product.tags}">
+          </div>
+        </div>
+
         <div class="admin-form-group">
           <label for="price">Price (€)</label>
           <div class="admin-input-wrapper">
@@ -68,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Stock -->
         <div class="admin-form-group">
           <label for="stock">Stock</label>
           <div class="admin-input-wrapper">
@@ -78,7 +82,6 @@
           </div>
         </div>
 
-        <!-- Image -->
         <div class="admin-form-group">
           <label for="image">Image (formatted directory)</label>
           <div class="admin-input-wrapper">

@@ -15,7 +15,6 @@
 
   <div class="checkout-grid">
 
-    <!-- LEFT: Order Summary -->
     <div class="order-summary">
       <h2>Order Summary</h2>
 
@@ -46,12 +45,10 @@
       </table>
     </div>
 
-    <!-- RIGHT: Delivery + Payment -->
     <div class="order-details">
 
       <form th:action="@{/checkout/place}" method="post">
 
-        <!-- DELIVERY DETAILS -->
         <h2>Delivery Details</h2>
 
         <div class="checkout-field">
@@ -97,7 +94,6 @@
 
         <hr style="margin:20px 0;">
 
-        <!-- PAYMENT DETAILS (DUMMY) -->
         <h2>Payment Details (Demo)</h2>
 
         <div class="notice">
